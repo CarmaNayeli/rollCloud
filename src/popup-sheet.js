@@ -5819,8 +5819,68 @@ function handleSpellOption(spell, spellIndex, option) {
  */
 function getCustomMacros(spellName) {
   const key = `customMacros_${characterData.name}`;
-  const allMacros = JSON.parse(localStorage.getItem(key) || '{}');
-  return allMacros[spellName] || null;
+  let allMacros = {};
+  
+  // Safely parse localStorage with error handling
+  try {
+    const stored = localStorage.getItem(key);
+    if (stored) {
+      allMacros = JSON.parse(stored);
+    }
+  } catch (error) {
+    debug.error('❌ Error parsing custom macros from localStorage:', error);
+    localStorage.removeItem(key); // Clear corrupted data
+  }
+  
+  // Try to get from localStorage first (for immediate access)
+  let macros = allMacros[spellName];
+  
+  // If not found locally, try to load from database
+  if (!macros && characterData.customMacros) {
+    macros = characterData.customMacros[spellName] || null;
+    // Cache in localStorage for future access
+    if (macros) {
+      allMacros[spellName] = macros;
+      try {
+        localStorage.setItem(key, JSON.stringify(allMacros));
+      } catch (error) {
+        debug.error('❌ Error caching custom macros to localStorage:', error);
+      }
+    }
+  }
+  
+  return macros;
+}
+
+/**
+ * Sync custom macros to database
+ */
+async function syncCustomMacrosToDatabase(allMacros) {
+  try {
+    if (!characterData || !characterData.id) {
+      debug.warn('⚠️ Cannot sync custom macros - no character ID');
+      showNotification('⚠️ Custom macros saved locally only (no character ID)', 'warning');
+      return;
+    }
+    
+    // Send message to background script to sync to database
+    const response = await browserAPI.runtime.sendMessage({
+      action: 'syncCustomMacros',
+      characterId: characterData.id,
+      customMacros: allMacros
+    });
+    
+    if (response && response.success) {
+      debug.log('🎨 Custom macros synced to database successfully');
+      showNotification('✅ Custom macros saved to cloud', 'success');
+    } else {
+      debug.warn('⚠️ Failed to sync custom macros to database:', response?.error);
+      showNotification('⚠️ Custom macros saved locally only (cloud sync failed)', 'warning');
+    }
+  } catch (error) {
+    debug.warn('⚠️ Error syncing custom macros to database:', error);
+    showNotification('⚠️ Custom macros saved locally only (connection error)', 'warning');
+  }
 }
 
 /**
@@ -5836,8 +5896,12 @@ function saveCustomMacros(spellName, macros) {
     delete allMacros[spellName]; // Remove if no macros defined
   }
 
+  // Save to localStorage (for immediate access)
   localStorage.setItem(key, JSON.stringify(allMacros));
   debug.log(`💾 Saved custom macros for "${spellName}":`, macros);
+  
+  // Also sync to database for persistence
+  syncCustomMacrosToDatabase(allMacros);
 }
 
 /**

@@ -90,6 +90,13 @@ browserAPI.runtime.onMessage.addListener((request, sender, sendResponse) => {
           break;
         }
 
+        case 'syncCustomMacros': {
+          // Sync custom macros to Supabase
+          const syncResult = await syncCustomMacrosToSupabase(request.characterId, request.customMacros);
+          response = syncResult;
+          break;
+        }
+
         case 'checkDiscordCharacterIntegration': {
           // Check if current character is active in Discord bot
           const checkResult = await checkDiscordCharacterIntegration(request.characterName, request.characterId);
@@ -748,6 +755,10 @@ async function getCharacterDataFromDatabase(characterId) {
       if (!fullCharacter.name) {
         fullCharacter.name = dbCharacter.character_name;
       }
+      // Add custom macros from database if they exist
+      if (dbCharacter.custom_macros) {
+        fullCharacter.customMacros = dbCharacter.custom_macros;
+      }
       debug.log('✅ Loaded full character from database raw_dicecloud_data:', fullCharacter.name);
       return fullCharacter;
     }
@@ -779,6 +790,7 @@ async function getCharacterDataFromDatabase(characterId) {
       spellSlots: dbCharacter.spell_slots,
       resources: dbCharacter.resources,
       conditions: dbCharacter.conditions,
+      customMacros: dbCharacter.custom_macros || {}, // Include custom macros from database
       // Preserve the raw database record for debugging
       rawDiceCloudData: dbCharacter,
       source: 'database',
@@ -1727,6 +1739,54 @@ async function syncCharacterColorToSupabase(characterId, color) {
     return { success: true };
   } catch (error) {
     debug.error('❌ Failed to sync character color to Supabase:', error);
+    return { success: false, error: error.message };
+  }
+}
+
+/**
+ * Sync custom macros to Supabase
+ * Updates only the custom_macros field for a specific character
+ */
+async function syncCustomMacrosToSupabase(characterId, customMacros) {
+  if (!isSupabaseConfigured()) {
+    debug.warn('Supabase not configured - custom macros sync unavailable');
+    return {
+      success: false,
+      error: 'Custom macros sync not available. Supabase not configured.',
+      supabaseNotConfigured: true
+    };
+  }
+
+  try {
+    debug.log('⚙️ Syncing custom macros to Supabase:', characterId, Object.keys(customMacros));
+
+    // Update only the custom_macros field
+    const response = await fetch(
+      `${SUPABASE_URL}/rest/v1/rollcloud_characters?dicecloud_character_id=eq.${characterId}`,
+      {
+        method: 'PATCH',
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+          custom_macros: customMacros
+        })
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      debug.error('❌ Failed to sync custom macros to Supabase:', response.status, errorText);
+      return { success: false, error: `Sync failed: ${response.status}` };
+    }
+
+    debug.log('✅ Custom macros synced to Supabase successfully');
+    return { success: true };
+  } catch (error) {
+    debug.error('❌ Failed to sync custom macros to Supabase:', error);
     return { success: false, error: error.message };
   }
 }
