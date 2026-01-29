@@ -1638,15 +1638,10 @@ function getActionOptions(action) {
   return edgeCaseResult;
 }
 
-function buildActionsDisplay(container, actions) {
-  // Clear container
-  container.innerHTML = '';
-
-  // DEBUG: Log all actions to see what we have
-  debug.log('🔍 buildActionsDisplay called with actions:', actions.map(a => ({ name: a.name, damage: a.damage, actionType: a.actionType })));
-  debug.log('🔍 Total actions received:', actions.length);
-
-  // Deduplicate actions by name and combine sources (similar to spells)
+/**
+ * Deduplicate actions by name, combining sources and properties
+ */
+function deduplicateActions(actions) {
   const deduplicatedActions = [];
   const actionsByName = {};
 
@@ -1655,7 +1650,7 @@ function buildActionsDisplay(container, actions) {
 
   sortedActions.forEach(action => {
     const actionName = (action.name || '').trim();
-    
+
     if (!actionName) {
       debug.log('⚠️ Skipping action with no name');
       return;
@@ -1669,49 +1664,54 @@ function buildActionsDisplay(container, actions) {
     } else {
       // Duplicate action - combine sources and other properties
       const existingAction = actionsByName[actionName];
-      
+
       // Combine sources if they exist
       if (action.source && !existingAction.source.includes(action.source)) {
-        existingAction.source = existingAction.source 
-          ? existingAction.source + '; ' + action.source 
+        existingAction.source = existingAction.source
+          ? existingAction.source + '; ' + action.source
           : action.source;
         debug.log(`📝 Combined duplicate action "${actionName}": ${existingAction.source}`);
       }
-      
+
       // Combine descriptions if they exist and are different
       if (action.description && action.description !== existingAction.description) {
-        existingAction.description = existingAction.description 
-          ? existingAction.description + '\n\n' + action.description 
+        existingAction.description = existingAction.description
+          ? existingAction.description + '\n\n' + action.description
           : action.description;
         debug.log(`📝 Combined descriptions for "${actionName}"`);
       }
-      
+
       // Merge other useful properties
       if (action.uses && !existingAction.uses) {
         existingAction.uses = action.uses;
         debug.log(`📝 Added uses to "${actionName}"`);
       }
-      
+
       if (action.damage && !existingAction.damage) {
         existingAction.damage = action.damage;
         debug.log(`📝 Added damage to "${actionName}"`);
       }
-      
+
       if (action.attackRoll && !existingAction.attackRoll) {
         existingAction.attackRoll = action.attackRoll;
         debug.log(`📝 Added attackRoll to "${actionName}"`);
       }
-      
+
       debug.log(`🔄 Merged duplicate action: "${actionName}"`);
     }
   });
 
   debug.log(`📊 Deduplicated ${actions.length} actions to ${deduplicatedActions.length} unique actions`);
+  return deduplicatedActions;
+}
 
-  // Apply filters
+/**
+ * Apply current action filters to deduplicated actions
+ */
+function filterActions(deduplicatedActions) {
   let filteredActions = deduplicatedActions.filter(action => {
     const actionName = (action.name || '').toLowerCase();
-    
+
     // Filter out duplicate Divine Smite entries - keep only the main one
     if (actionName.includes('divine smite')) {
       // Skip variants like "Divine Smite Level 1", "Divine Smite (Against Fiends, Critical) Level 1", etc.
@@ -1723,7 +1723,7 @@ function buildActionsDisplay(container, actions) {
         debug.log(`✅ Keeping main Divine Smite entry: ${action.name}`);
       }
     }
-    
+
     // Debug: Log all Lay on Hands related actions
     if (actionName.includes('lay on hands')) {
       const normalizedActionName = action.name.toLowerCase()
@@ -1731,14 +1731,14 @@ function buildActionsDisplay(container, actions) {
         .replace(/\s+/g, ' ') // Normalize spaces
         .trim();
       const normalizedSearch = 'lay on hands: heal';
-      
+
       debug.log(`🔍 Found Lay on Hands action: "${action.name}"`);
       debug.log(`🔍 Normalized action name: "${normalizedActionName}"`);
       debug.log(`🔍 Normalized search term: "${normalizedSearch}"`);
       debug.log(`🔍 Do they match? ${normalizedActionName === normalizedSearch}`);
       debug.log(`🔍 Action object:`, action);
     }
-    
+
     // Filter by action type
     if (actionFilters.actionType !== 'all') {
       const actionType = (action.actionType || '').toLowerCase();
@@ -1746,7 +1746,7 @@ function buildActionsDisplay(container, actions) {
         return false;
       }
     }
-    
+
     // Filter by category
     if (actionFilters.category !== 'all') {
       const category = categorizeAction(action);
@@ -1754,7 +1754,7 @@ function buildActionsDisplay(container, actions) {
         return false;
       }
     }
-    
+
     // Filter by search term
     if (actionFilters.search) {
       const searchLower = actionFilters.search;
@@ -1764,12 +1764,18 @@ function buildActionsDisplay(container, actions) {
         return false;
       }
     }
-    
+
     return true;
   });
 
   debug.log(`🔍 Filtered ${deduplicatedActions.length} actions to ${filteredActions.length} actions`);
+  return filteredActions;
+}
 
+/**
+ * Add Sneak Attack toggle if character has it
+ */
+function addSneakAttackToggle(container, deduplicatedActions) {
   // Check if character has Sneak Attack available (from DiceCloud)
   // We only check if it EXISTS, not whether it's enabled on DiceCloud
   // The toggle state on our sheet is independent and user-controlled
@@ -1811,7 +1817,12 @@ function buildActionsDisplay(container, actions) {
     toggleSection.appendChild(toggleLabel);
     container.appendChild(toggleSection);
   }
+}
 
+/**
+ * Add Elemental Weapon toggle if character has the spell
+ */
+function addElementalWeaponToggle(container) {
   // Check if character has Elemental Weapon spell prepared (check spells list)
   // We only check if it EXISTS, the toggle is user-controlled
   const hasElementalWeapon = characterData.spells && characterData.spells.some(s =>
@@ -1846,7 +1857,12 @@ function buildActionsDisplay(container, actions) {
     elementalToggleSection.appendChild(elementalToggleLabel);
     container.appendChild(elementalToggleSection);
   }
+}
 
+/**
+ * Add Lucky feat button if character has it
+ */
+function addLuckyFeatButton(container) {
   // Check if character has Lucky feat
   const hasLuckyFeat = characterData.features && characterData.features.some(f =>
     f.name && f.name.toLowerCase().includes('lucky')
@@ -1902,6 +1918,30 @@ function buildActionsDisplay(container, actions) {
     luckyActionSection.appendChild(luckyButton);
     container.appendChild(luckyActionSection);
   }
+}
+
+function buildActionsDisplay(container, actions) {
+  // Clear container
+  container.innerHTML = '';
+
+  // DEBUG: Log all actions to see what we have
+  debug.log('🔍 buildActionsDisplay called with actions:', actions.map(a => ({ name: a.name, damage: a.damage, actionType: a.actionType })));
+  debug.log('🔍 Total actions received:', actions.length);
+
+  // Deduplicate actions by name and combine sources
+  const deduplicatedActions = deduplicateActions(actions);
+
+  // Apply filters
+  const filteredActions = filterActions(deduplicatedActions);
+
+  // Add Sneak Attack toggle if available
+  addSneakAttackToggle(container, deduplicatedActions);
+
+  // Add Elemental Weapon toggle if available
+  addElementalWeaponToggle(container);
+
+  // Add Lucky feat button if available
+  addLuckyFeatButton(container);
 
   filteredActions.forEach((action, index) => {
     // Skip rendering standalone Sneak Attack button if it exists
