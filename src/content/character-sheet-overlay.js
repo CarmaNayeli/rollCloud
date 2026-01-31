@@ -438,23 +438,23 @@
         width: 90%;
         max-width: 1200px;
         max-height: 90vh;
-        background: white;
+        background: #1a1a1a;
         border-radius: 16px;
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        border: 2px solid #4ECDC4;
+        border: 2px solid #00ff41;
       }
 
       .rollcloud-header {
-        background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+        background: #0a0a0a;
         color: white;
         padding: 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 2px solid #4ECDC4;
+        border-bottom: 2px solid #00ff41;
       }
 
       .sheet-title h2 {
@@ -499,8 +499,8 @@
 
       .section h3 {
         margin: 0 0 15px 0;
-        color: #2C3E50;
-        border-bottom: 2px solid #4ECDC4;
+        color: #e0e0e0;
+        border-bottom: 2px solid #00ff41;
         padding-bottom: 5px;
       }
 
@@ -511,11 +511,11 @@
       }
 
       .ability-card {
-        background: linear-gradient(135deg, #f0fff4 0%, #e8f8f5 100%);
+        background: #0a0a0a;
         padding: 15px;
         border-radius: 12px;
         text-align: center;
-        border: 2px solid #4ECDC4;
+        border: 2px solid #00ff41;
         transition: transform 0.2s;
         position: relative;
         cursor: pointer;
@@ -523,7 +523,7 @@
 
       .ability-card:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
       }
 
       .ability-card:active {
@@ -534,7 +534,7 @@
         position: absolute;
         top: 5px;
         right: 5px;
-        background: #27AE60;
+        background: #00ff41;
         color: white;
         border: none;
         width: 24px;
@@ -544,12 +544,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+        box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
         pointer-events: none;
       }
 
       .skill-roll-btn {
-        background: #27AE60;
+        background: #00ff41;
         color: white;
         border: none;
         padding: 4px 8px;
@@ -560,12 +560,12 @@
       }
 
       .skill-roll-btn:hover {
-        background: #229954;
+        background: #00cc33;
       }
 
       .ability-name {
         font-weight: bold;
-        color: #2C3E50;
+        color: #e0e0e0;
         font-size: 0.9em;
         margin-bottom: 5px;
       }
@@ -573,7 +573,7 @@
       .ability-score {
         font-size: 2em;
         font-weight: bold;
-        color: #4ECDC4;
+        color: #00ff41;
         line-height: 1;
       }
 
@@ -589,17 +589,17 @@
       }
 
       .combat-stat, .resource-card {
-        background: #f0fff4;
+        background: #0a0a0a;
         padding: 15px;
         border-radius: 8px;
         text-align: center;
-        border: 1px solid #4ECDC4;
+        border: 1px solid #00ff41;
       }
 
       .combat-stat label, .resource-card label {
         display: block;
         font-weight: bold;
-        color: #2C3E50;
+        color: #e0e0e0;
         margin-bottom: 8px;
         font-size: 0.9em;
       }
@@ -607,7 +607,7 @@
       .combat-stat .value, .resource-card .value {
         font-size: 1.4em;
         font-weight: bold;
-        color: #4ECDC4;
+        color: #00ff41;
       }
 
       .hp-input-group {
@@ -621,21 +621,21 @@
         text-align: center;
         font-size: 1.2em;
         font-weight: bold;
-        color: #4ECDC4;
-        background: white;
-        border: 2px solid #4ECDC4;
+        color: #00ff41;
+        background: #1a1a1a;
+        border: 2px solid #00ff41;
         border-radius: 4px;
         padding: 4px;
       }
 
       .hp-separator {
         font-weight: bold;
-        color: #4ECDC4;
+        color: #00ff41;
         font-size: 1.2em;
       }
 
       .initiative-btn {
-        background: #4ECDC4;
+        background: #00ff41;
         color: white;
         border: none;
         padding: 8px 12px;
@@ -647,7 +647,7 @@
       }
 
       .initiative-btn:hover {
-        background: #44A08D;
+        background: #00cc33;
         transform: translateY(-1px);
         box-shadow: 0 2px 8px rgba(78, 205, 196, 0.3);
       }
@@ -659,10 +659,10 @@
       }
 
       .save-card, .skill-card {
-        background: #f0fff4;
+        background: #0a0a0a;
         padding: 10px;
         border-radius: 8px;
-        border: 1px solid #4ECDC4;
+        border: 1px solid #00ff41;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -672,21 +672,21 @@
 
       .save-card:hover, .skill-card:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
       }
 
       .save-name, .skill-name {
         font-weight: bold;
-        color: #2C3E50;
+        color: #e0e0e0;
       }
 
       .save-bonus, .skill-bonus {
         font-weight: bold;
-        color: #4ECDC4;
-        background: white;
+        color: #00ff41;
+        background: #1a1a1a;
         padding: 2px 8px;
         border-radius: 12px;
-        border: 1px solid #4ECDC4;
+        border: 1px solid #00ff41;
       }
 
       #variables-grid {
@@ -696,20 +696,20 @@
       }
 
       .variable-card {
-        background: #f0fff4;
+        background: #0a0a0a;
         padding: 10px;
         border-radius: 8px;
-        border: 1px solid #4ECDC4;
+        border: 1px solid #00ff41;
       }
 
       .variable-name {
         font-weight: bold;
-        color: #2C3E50;
+        color: #e0e0e0;
         font-size: 0.9em;
       }
 
       .variable-value {
-        color: #4ECDC4;
+        color: #00ff41;
         font-weight: bold;
       }
 
@@ -722,14 +722,14 @@
       }
 
       .panel-section {
-        background: #f0fff4;
+        background: #0a0a0a;
         border-radius: 12px;
-        border: 1px solid #4ECDC4;
+        border: 1px solid #00ff41;
         overflow: hidden;
       }
 
       .panel-header {
-        background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+        background: #0a0a0a;
         color: white;
         padding: 15px 20px;
         display: flex;
@@ -773,11 +773,11 @@
       }
 
       .history-item {
-        background: white;
+        background: #1a1a1a;
         padding: 12px;
         border-radius: 8px;
         margin-bottom: 8px;
-        border: 1px solid #4ECDC4;
+        border: 1px solid #00ff41;
         animation: slideIn 0.3s ease-out;
       }
 
@@ -789,7 +789,7 @@
 
       .history-name {
         font-weight: bold;
-        color: #2C3E50;
+        color: #e0e0e0;
       }
 
       .history-time {
@@ -799,7 +799,7 @@
 
       .history-formula {
         font-family: 'Courier New', monospace;
-        color: #4ECDC4;
+        color: #00ff41;
         font-weight: bold;
       }
 
@@ -836,7 +836,7 @@
       }
 
       .stat-item {
-        background: white;
+        background: #1a1a1a;
         padding: 15px;
         border-radius: 8px;
         text-align: center;
@@ -894,7 +894,7 @@
       }
 
       .toggle-btn.active {
-        background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+        background: #0a0a0a;
         border-color: #4ECDC4;
         color: white;
         box-shadow: 0 2px 8px rgba(78, 205, 196, 0.3);
@@ -905,10 +905,10 @@
         padding: 12px;
         border-radius: 8px;
         font-size: 0.9em;
-        color: #2C3E50;
+        color: #e0e0e0;
         text-align: center;
         margin-top: 10px;
-        border: 1px solid #4ECDC4;
+        border: 1px solid #00ff41;
       }
 
       .empty-state {
@@ -955,7 +955,7 @@
 
       .spell-name {
         font-weight: bold;
-        color: #2C3E50;
+        color: #e0e0e0;
       }
 
       .spell-action {
@@ -1092,29 +1092,98 @@
 
   /**
    * Loads character data from extension storage
+   * Opera-compatible with timeout, retry logic, and direct storage fallback
    */
-  function loadCharacterData() {
-    debug.log(' Loading character data from storage...');
-    browserAPI.runtime.sendMessage({ action: 'getCharacterData' }, (response) => {
-      if (browserAPI.runtime.lastError) {
-        debug.error(' Extension context error:', browserAPI.runtime.lastError);
-        showNotification('Failed to load character data', 'error');
-        return;
-      }
+  async function loadCharacterData() {
+    debug.log('📋 Loading character data from storage...');
 
-      if (response && response.data) {
-        debug.log(' Character data loaded:', response.data.name);
-        characterData = response.data;
+    // Create a timeout to handle unresponsive background scripts (Opera issue)
+    let timeoutId;
+    let messageHandled = false;
 
-        showNotification('Character data synced! ', 'success');
-        
-        // Add roll event listeners after character data is loaded
-        addRollEventListeners();
-      } else {
-        debug.log(' No character data found');
-        showNotification('No character data found. Please sync from Dice Cloud first.', 'error');
+    const timeoutPromise = new Promise((_, reject) => {
+      timeoutId = setTimeout(() => {
+        if (!messageHandled) {
+          reject(new Error('Background script timeout - service worker may be inactive'));
+        }
+      }, 3000); // 3 second timeout (reduced for faster fallback)
+    });
+
+    // Try to send message with Promise wrapper for better error handling
+    const messagePromise = new Promise((resolve, reject) => {
+      try {
+        browserAPI.runtime.sendMessage({ action: 'getCharacterData' }, (response) => {
+          messageHandled = true;
+          clearTimeout(timeoutId);
+
+          if (browserAPI.runtime.lastError) {
+            debug.error('📋 Extension context error:', browserAPI.runtime.lastError);
+            reject(new Error(browserAPI.runtime.lastError.message || 'Extension context error'));
+            return;
+          }
+
+          resolve(response);
+        });
+      } catch (error) {
+        messageHandled = true;
+        clearTimeout(timeoutId);
+        reject(error);
       }
     });
+
+    try {
+      // Race between message and timeout
+      const response = await Promise.race([messagePromise, timeoutPromise]);
+
+      if (response && response.data) {
+        debug.log('📋 Character data loaded via background script:', response.data.name);
+        characterData = response.data;
+        showNotification('Character data synced! ✅', 'success');
+
+        // Add roll event listeners after character data is loaded
+        addRollEventListeners();
+        return;
+      } else {
+        debug.log('📋 No character data found');
+        showNotification('No character data found. Please sync from Dice Cloud first.', 'error');
+        return;
+      }
+    } catch (error) {
+      debug.warn('📋 Background script unavailable:', error.message);
+      debug.log('📋 Attempting direct storage access fallback...');
+
+      // FALLBACK: Access storage directly (Opera compatibility when service worker is asleep)
+      try {
+        const result = await browserAPI.storage.local.get(['characterProfiles', 'activeCharacterId']);
+        const characterProfiles = result.characterProfiles || {};
+        const activeCharacterId = result.activeCharacterId;
+
+        if (activeCharacterId && characterProfiles[activeCharacterId]) {
+          const activeChar = characterProfiles[activeCharacterId];
+          characterData = activeChar.character || activeChar;
+
+          debug.log('📋 Character data loaded via direct storage:', characterData.name);
+          showNotification('Character data synced! ✅', 'success');
+
+          // Add roll event listeners after character data is loaded
+          addRollEventListeners();
+        } else {
+          debug.log('📋 No character data found in direct storage');
+          showNotification('No character data found. Please sync from Dice Cloud first.', 'error');
+        }
+      } catch (storageError) {
+        debug.error('📋 Direct storage access failed:', storageError);
+        showNotification('Failed to load character data. Try refreshing the page.', 'error');
+
+        // Last resort: try to wake service worker
+        debug.log('📋 Attempting to wake service worker...');
+        try {
+          browserAPI.runtime.sendMessage({ action: 'ping' });
+        } catch (e) {
+          debug.error('📋 Failed to ping service worker:', e);
+        }
+      }
+    }
   }
 
   /**
@@ -1951,7 +2020,7 @@
         position: fixed;
         left: ${position.x}px;
         top: ${position.y}px;
-        background: white;
+        background: #1a1a1a;
         border: 1px solid #ccc;
         border-radius: 4px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.2);
@@ -2228,7 +2297,7 @@
         padding: 8px;
         border-radius: 8px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        border: 1px solid #4ECDC4;
+        border: 1px solid #00ff41;
         display: flex;
         flex-direction: column;
         gap: 5px;
@@ -2246,7 +2315,7 @@
       .status-char-name {
         font-size: 14px;
         font-weight: bold;
-        color: #4ECDC4;
+        color: #00ff41;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -2669,7 +2738,7 @@
         position: fixed;
         left: ${e.clientX}px;
         top: ${e.clientY}px;
-        background: white;
+        background: #1a1a1a;
         border: 1px solid #ccc;
         border-radius: 4px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.2);

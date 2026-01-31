@@ -783,6 +783,31 @@ async function installFirefoxExtension(config) {
     // ========================================================================
     console.log('\n   Step 4: Configuring Firefox for unsigned extensions...');
 
+    // Check if Firefox is running - must be closed to modify prefs.js
+    const firefoxIsRunning = isFirefoxRunning();
+    if (firefoxIsRunning) {
+      console.log('   ⚠️ Firefox is currently running - configuration changes require Firefox to be closed');
+
+      return {
+        message: 'Firefox must be closed to configure unsigned extension support',
+        requiresRestart: false,
+        requiresManualAction: true,
+        manualInstructions: {
+          type: 'firefox_close_required',
+          steps: [
+            '1. Please close Firefox completely (File > Exit)',
+            '2. Click "Retry Installation" to continue',
+            '',
+            'Alternative: Enable unsigned extensions manually:',
+            '1. Open Firefox and type about:config in the address bar',
+            '2. Search for "xpinstall.signatures.required"',
+            '3. Set it to "false"',
+            '4. Restart Firefox and try installing the extension again'
+          ]
+        }
+      };
+    }
+
     if (platform === 'win32') {
       const appData = process.env['APPDATA'] || path.join(os.homedir(), 'AppData', 'Roaming');
       const firefoxProfileDir = path.join(appData, 'Mozilla', 'Firefox', 'Profiles');
@@ -793,6 +818,7 @@ async function installFirefoxExtension(config) {
           return fs.statSync(fullPath).isDirectory();
         });
 
+        let configuredProfiles = 0;
         for (const profile of profiles) {
           const prefsPath = path.join(firefoxProfileDir, profile, 'prefs.js');
           try {
@@ -801,17 +827,32 @@ async function installFirefoxExtension(config) {
               prefsContent = fs.readFileSync(prefsPath, 'utf8');
             }
 
-            if (!prefsContent.includes('xpinstall.signatures.required')) {
-              prefsContent += '\n// Allow unsigned extensions for RollCloud\n';
-              prefsContent += 'user_pref("xpinstall.signatures.required", false);\n';
-              prefsContent += 'user_pref("extensions.langpacks.signatures.required", false);\n';
-              fs.writeFileSync(prefsPath, prefsContent);
-              console.log(`   ✅ Configured profile: ${profile}`);
-            }
+            // Remove existing xpinstall settings to avoid duplicates
+            prefsContent = prefsContent.split('\n').filter(line =>
+              !line.includes('xpinstall.signatures.required') &&
+              !line.includes('extensions.langpacks.signatures.required')
+            ).join('\n');
+
+            // Add configuration
+            prefsContent += '\n// Allow unsigned extensions for owlCloud\n';
+            prefsContent += 'user_pref("xpinstall.signatures.required", false);\n';
+            prefsContent += 'user_pref("extensions.langpacks.signatures.required", false);\n';
+
+            fs.writeFileSync(prefsPath, prefsContent);
+            console.log(`   ✅ Configured profile: ${profile}`);
+            configuredProfiles++;
           } catch (prefsError) {
             console.log(`   ⚠️ Could not configure profile ${profile}: ${prefsError.message}`);
           }
         }
+
+        if (configuredProfiles > 0) {
+          console.log(`   ✅ Successfully configured ${configuredProfiles} Firefox profile(s)`);
+        } else {
+          console.log('   ⚠️ No Firefox profiles were configured - manual configuration may be required');
+        }
+      } else {
+        console.log('   ℹ️ No Firefox profiles found - will be configured on first run');
       }
     }
 
@@ -849,9 +890,17 @@ async function installFirefoxExtension(config) {
           type: 'firefox_addon',
           steps: [
             '1. Firefox should now show an installation prompt',
-            '2. Click "Add" to install the RollCloud extension',
-            '3. Grant any requested permissions',
-            '4. The extension icon should appear in the toolbar'
+            '2. If you see "This add-on could not be verified":',
+            '   - This is expected for development builds',
+            '   - Click "Add anyway" or "Continue to Installation"',
+            '3. Click "Add" to install the owlCloud extension',
+            '4. Grant any requested permissions',
+            '5. The extension icon should appear in the toolbar',
+            '',
+            'Troubleshooting:',
+            '- If installation is blocked, open about:config in Firefox',
+            '- Search for "xpinstall.signatures.required"',
+            '- Set it to "false" and retry'
           ],
           xpiPath: localXpiPath
         }
@@ -866,10 +915,14 @@ async function installFirefoxExtension(config) {
           type: 'firefox_addon_manual',
           steps: [
             '1. Open Firefox Developer Edition manually',
-            '2. Press Ctrl+O (or Cmd+O on Mac) to open a file',
-            `3. Navigate to: ${localXpiPath}`,
-            '4. Click "Add" to install the extension',
-            '5. Grant any requested permissions'
+            '2. Type about:config in the address bar and press Enter',
+            '3. Search for "xpinstall.signatures.required"',
+            '4. Set it to "false" (double-click to toggle)',
+            '5. Press Ctrl+O (or Cmd+O on Mac) to open a file',
+            `6. Navigate to: ${localXpiPath}`,
+            '7. If you see "could not be verified", click "Add anyway"',
+            '8. Click "Add" to install the extension',
+            '9. Grant any requested permissions'
           ],
           xpiPath: localXpiPath
         }

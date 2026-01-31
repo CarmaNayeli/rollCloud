@@ -666,6 +666,12 @@ browserAPI.runtime.onMessage.addListener((request, sender, sendResponse) => {
           break;
         }
 
+        case 'ping':
+          // Keep-alive ping to wake up service worker (Opera compatibility)
+          debug.log('📡 Received ping from content script');
+          response = { success: true, pong: true, timestamp: Date.now() };
+          break;
+
         default:
           debug.warn('Unknown action:', request.action);
           response = { success: false, error: 'Unknown action: ' + request.action };

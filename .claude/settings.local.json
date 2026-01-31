@@ -13,7 +13,8 @@
       "Bash(do echo \"Fixing $cmd.js...\")",
       "Bash(powershell -Command:*)",
       "Bash(git merge:*)",
-      "Read(//c/Users/c_dow/rollCloud/**)"
+      "Read(//c/Users/c_dow/rollCloud/**)",
+      "Bash(git clone:*)"
     ]
   }
 }

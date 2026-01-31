@@ -172,6 +172,37 @@ function initializePopup() {
     checkLoginStatus();
   });
 
+  // DEBUG: Force show main section after 5 seconds if still on login screen
+  // This helps diagnose issues in Chrome/Opera where auto-login might be failing
+  setTimeout(() => {
+    if (!mainSection.classList.contains('hidden')) {
+      console.log('✅ Main section already visible');
+      return;
+    }
+
+    console.warn('⚠️ Main section still hidden after 5s - checking storage one more time...');
+    browserAPI.storage.local.get(['diceCloudToken', 'diceCloudUserId', 'characterProfiles'])
+      .then((result) => {
+        console.log('📦 Storage check:', {
+          hasToken: !!result.diceCloudToken,
+          hasUserId: !!result.diceCloudUserId,
+          hasProfiles: !!result.characterProfiles,
+          profileCount: result.characterProfiles ? Object.keys(result.characterProfiles).length : 0
+        });
+
+        if (result.diceCloudToken || result.characterProfiles) {
+          console.log('✅ Found data in storage - forcing main section to show');
+          showMainSection();
+        } else {
+          console.log('ℹ️ No data in storage - login screen is correct');
+          console.log('👉 Please visit DiceCloud and log in, then refresh this popup');
+        }
+      })
+      .catch((err) => {
+        console.error('❌ Storage check failed:', err);
+      });
+  }, 5000);
+
   /**
    * Render UI from cached storage values so the popup shows instant data
    * before any network/Supabase checks run.
@@ -287,6 +318,15 @@ function initializePopup() {
   // Event Listeners - Login
   autoConnectBtn.addEventListener('click', handleAutoConnect);
   usernameLoginForm.addEventListener('submit', handleUsernameLogin);
+
+  // Debug: Skip login button
+  const debugSkipLoginBtn = document.getElementById('debugSkipLoginBtn');
+  if (debugSkipLoginBtn) {
+    debugSkipLoginBtn.addEventListener('click', () => {
+      console.log('🚀 Debug: Forcing main section to show');
+      showMainSection();
+    });
+  }
 
   // Event Listeners - Main Interface
   logoutBtn.addEventListener('click', handleLogout);
@@ -1246,6 +1286,7 @@ function initializePopup() {
 
   /**
    * Handles show sheet button click
+   * Opera-compatible with timeout handling
    */
   async function handleShowSheet() {
     try {
@@ -1282,8 +1323,13 @@ function initializePopup() {
         }
       }
 
-      // Send message to Roll20 content script to show sheet
-      const response = await browserAPI.tabs.sendMessage(tab.id, { action: 'showCharacterSheet' });
+      // Send message to Roll20 content script to show sheet with timeout (Opera compatibility)
+      const messagePromise = browserAPI.tabs.sendMessage(tab.id, { action: 'showCharacterSheet' });
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('Content script timeout - try refreshing Roll20 page')), 5000)
+      );
+
+      const response = await Promise.race([messagePromise, timeoutPromise]);
 
       if (response && response.success) {
         showSuccess('Character sheet opened!');
@@ -1296,7 +1342,15 @@ function initializePopup() {
       }
     } catch (error) {
       debug.error('Error showing character sheet:', error);
-      showError('Error: ' + error.message);
+
+      // Provide helpful error message
+      if (error.message && error.message.includes('timeout')) {
+        showError('Roll20 content script not responding. Try refreshing the page.');
+      } else if (error.message && error.message.includes('not find')) {
+        showError('Roll20 content script not loaded. Try refreshing the page.');
+      } else {
+        showError('Error: ' + error.message);
+      }
     } finally {
       showSheetBtn.disabled = false;
       showSheetBtn.textContent = '📋 Show Character Sheet';
