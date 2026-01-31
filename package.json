@@ -2,17 +2,23 @@
   "name": "rollcloud",
   "version": "1.2.7",
   "description": "RollCloud: DiceCloud + Roll20 + Discord Integration",
+  "type": "module",
   "scripts": {
-    "build": "node scripts/build-all.js",
+    "build": "node build.js",
+    "build:watch": "node build.js --watch",
+    "build:prod": "node build.js --minify",
+    "build:legacy": "node scripts/build-all.js",
     "build:quick": "node scripts/build-all.js --skip-installer",
-    "build:extension": "node scripts/build-extension-clean.js",
+    "build:extension": "npm run build:prod",
     "build:signed": "node scripts/build-signed.js",
     "build:installer": "cd installer && npm run build",
     "build:installer:win": "cd installer && npm run build:win",
     "build:installer:mac": "cd installer && npm run build:mac",
     "build:installer:linux": "cd installer && npm run build:linux",
     "build:installer:all": "cd installer && npm run build:all",
-    "build:enterprise": "node scripts/build-enterprise-installer.js"
+    "build:enterprise": "node scripts/build-enterprise-installer.js",
+    "dev": "npm run build:watch",
+    "clean": "rm -rf dist"
   },
   "keywords": [
     "rollcloud",
@@ -27,9 +33,13 @@
   "author": "Carmabella <https://carmabella.carrd.co>",
   "license": "MIT",
   "devDependencies": {
-    "archiver": "^7.0.1"
+    "@carmaclouds/build-tools": "^1.0.0",
+    "archiver": "^7.0.1",
+    "esbuild": "^0.19.0",
+    "esbuild-plugin-copy": "^2.1.1"
   },
   "dependencies": {
+    "@carmaclouds/core": "^1.0.0",
     "crx3": "^2.0.0",
     "extract-zip": "^2.0.1"
   }

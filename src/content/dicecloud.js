@@ -1802,8 +1802,8 @@
           }
 
           // For backward compatibility, set single damage/damageType to first entry
-          const damage = damageRolls.length > 0 ? damageRolls[0].damage : '';
-          const damageType = damageRolls.length > 0 ? damageRolls[0].damageType : '';
+          let damage = damageRolls.length > 0 ? damageRolls[0].damage : '';
+          let damageType = damageRolls.length > 0 ? damageRolls[0].damageType : '';
 
           // Check description for additional patterns
           if (description) {
