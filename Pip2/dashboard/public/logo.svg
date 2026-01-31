@@ -12,15 +12,15 @@
 
     <!-- Outer glow -->
     <radialGradient id="outerGlow" cx="50%" cy="50%">
-      <stop offset="0%" style="stop-color:#00ff41;stop-opacity:0.5" />
-      <stop offset="50%" style="stop-color:#00ff41;stop-opacity:0.2" />
-      <stop offset="100%" style="stop-color:#00ff41;stop-opacity:0" />
+      <stop offset="0%" style="stop-color:#ec407a;stop-opacity:0.3" />
+      <stop offset="50%" style="stop-color:#ec407a;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#ec407a;stop-opacity:0" />
     </radialGradient>
 
     <!-- D20 gradient -->
     <linearGradient id="d20gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#00ff41;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#00cc33;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#ec407a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c2185b;stop-opacity:1" />
     </linearGradient>
   </defs>
 
@@ -33,24 +33,24 @@
   <!-- D20 icosahedron (simplified) -->
   <g transform="translate(64, 64)" filter="url(#glow)">
     <!-- Top pyramid -->
-    <path d="M 0,-35 L -30,-10 L 0,-5 Z" fill="url(#d20gradient)" stroke="#00ff41" stroke-width="1.5"/>
-    <path d="M 0,-35 L 30,-10 L 0,-5 Z" fill="#00dd37" stroke="#00ff41" stroke-width="1.5"/>
+    <path d="M 0,-35 L -30,-10 L 0,-5 Z" fill="url(#d20gradient)" stroke="#ec407a" stroke-width="1.5"/>
+    <path d="M 0,-35 L 30,-10 L 0,-5 Z" fill="#c2185b" stroke="#ec407a" stroke-width="1.5"/>
 
     <!-- Middle band -->
-    <path d="M -30,-10 L -35,10 L 0,-5 Z" fill="#00bb2f" stroke="#00ff41" stroke-width="1.5"/>
-    <path d="M 30,-10 L 35,10 L 0,-5 Z" fill="#00bb2f" stroke="#00ff41" stroke-width="1.5"/>
-    <path d="M -35,10 L 0,15 L 0,-5 Z" fill="#00aa2a" stroke="#00ff41" stroke-width="1.5"/>
-    <path d="M 35,10 L 0,15 L 0,-5 Z" fill="#00aa2a" stroke="#00ff41" stroke-width="1.5"/>
+    <path d="M -30,-10 L -35,10 L 0,-5 Z" fill="#ad1457" stroke="#ec407a" stroke-width="1.5"/>
+    <path d="M 30,-10 L 35,10 L 0,-5 Z" fill="#ad1457" stroke="#ec407a" stroke-width="1.5"/>
+    <path d="M -35,10 L 0,15 L 0,-5 Z" fill="#880e4f" stroke="#ec407a" stroke-width="1.5"/>
+    <path d="M 35,10 L 0,15 L 0,-5 Z" fill="#880e4f" stroke="#ec407a" stroke-width="1.5"/>
 
     <!-- Bottom pyramid -->
-    <path d="M 0,35 L -30,10 L 0,15 Z" fill="#009922" stroke="#00ff41" stroke-width="1.5"/>
-    <path d="M 0,35 L 30,10 L 0,15 Z" fill="#009922" stroke="#00ff41" stroke-width="1.5"/>
-    <path d="M -30,10 L -35,10 L 0,15 Z" fill="#008820" stroke="#00ff41" stroke-width="1.5"/>
-    <path d="M 30,10 L 35,10 L 0,15 Z" fill="#008820" stroke="#00ff41" stroke-width="1.5"/>
+    <path d="M 0,35 L -30,10 L 0,15 Z" fill="#6a1b3a" stroke="#ec407a" stroke-width="1.5"/>
+    <path d="M 0,35 L 30,10 L 0,15 Z" fill="#6a1b3a" stroke="#ec407a" stroke-width="1.5"/>
+    <path d="M -30,10 L -35,10 L 0,15 Z" fill="#4a0b2e" stroke="#ec407a" stroke-width="1.5"/>
+    <path d="M 30,10 L 35,10 L 0,15 Z" fill="#4a0b2e" stroke="#ec407a" stroke-width="1.5"/>
 
     <!-- "20" text -->
     <text x="0" y="8" text-anchor="middle" font-size="24" font-weight="bold"
-          fill="#ffffff" stroke="#00ff41" stroke-width="0.5"
+          fill="#ffffff" stroke="#ec407a" stroke-width="0.5"
           font-family="Arial, sans-serif">20</text>
   </g>
 </svg>
