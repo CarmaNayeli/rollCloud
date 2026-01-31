@@ -202,7 +202,8 @@ if (typeof browser !== 'undefined' && browser.runtime) {
             }
           });
         }
-      }
+      },
+      onChanged: chrome.storage.onChanged
     },
     tabs: {
       query: (queryInfo) => {

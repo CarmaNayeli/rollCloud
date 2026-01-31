@@ -647,8 +647,17 @@
     }
 
     // Restore all class resources (Ki, Sorcery Points, Rage, etc.)
+    // But NOT exhaustion (exhaustion only reduces by 1 level on long rest)
     if (characterData.resources && characterData.resources.length > 0) {
       characterData.resources.forEach(resource => {
+        const lowerName = resource.name.toLowerCase();
+
+        // Skip exhaustion - it has special rules (reduces by 1 level, doesn't reset)
+        if (lowerName.includes('exhaustion') || lowerName.includes('fatigue')) {
+          debug.log(`⏭️ Skipping ${resource.name} (exhaustion has special long rest rules)`);
+          return;
+        }
+
         resource.current = resource.max;
 
         // Also update otherVariables to keep data in sync

@@ -94,8 +94,8 @@
     let filteredActions = characterData.actions.filter(action => {
       // Filter by action type (action, bonus, reaction, free)
       if (actionFilters.actionType !== 'all') {
-        const actionType = (action.actionType || '').toLowerCase();
-        if (actionType !== actionFilters.actionType) {
+        const actionType = (action.actionType || 'action').toLowerCase(); // Default to 'action' if not set
+        if (actionType !== actionFilters.actionType.toLowerCase()) { // Case-insensitive comparison
           return false;
         }
       }

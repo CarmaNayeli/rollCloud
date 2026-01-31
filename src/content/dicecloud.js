@@ -703,11 +703,27 @@
         max: (variables.hitPoints && (variables.hitPoints.total ?? variables.hitPoints.max)) || 0
       },
       temporaryHP: (variables.temporaryHitPoints && (variables.temporaryHitPoints.value ?? variables.temporaryHitPoints.currentValue)) || 0,
-      hitDice: {
-        current: creature.level || 1,
-        max: creature.level || 1,
-        type: getHitDieTypeFromClass(creature.levels || [])
-      },
+      hitDice: (() => {
+        // Check for hit dice in variables (e.g., D8HitDice, D10HitDice, etc.)
+        const hitDiceTypes = ['D6HitDice', 'D8HitDice', 'D10HitDice', 'D12HitDice'];
+        for (const diceType of hitDiceTypes) {
+          if (variables[diceType] && (variables[diceType].total ?? variables[diceType].max) > 0) {
+            const maxDice = variables[diceType].total ?? variables[diceType].max ?? creature.level ?? 1;
+            const currentDice = variables[diceType].value ?? variables[diceType].currentValue ?? maxDice;
+            return {
+              current: currentDice,
+              max: maxDice,
+              type: diceType.replace('HitDice', '').toLowerCase() // D8HitDice -> d8
+            };
+          }
+        }
+        // Fallback to level-based calculation
+        return {
+          current: creature.level || 1,
+          max: creature.level || 1,
+          type: getHitDieTypeFromClass(creature.levels || [])
+        };
+      })(),
       armorClass: calculateArmorClass(),
       speed: (variables.speed && (variables.speed.total || variables.speed.value)) || 30,
       initiative: (variables.initiative && (variables.initiative.total || variables.initiative.value)) || 0,
@@ -1715,9 +1731,9 @@
                 if (hasDiceNotation || (!isHalfDamageSave && !isVariableReference)) {
                   damageRolls.push({
                     damage: damageFormula,
-                    damageType: child.damageType || 'untyped'
+                    damageType: child.damageType || 'damage'
                   });
-                  console.log(`    ✅ Added damage roll: ${damageFormula} (${child.damageType || 'untyped'})`);
+                  console.log(`    ✅ Added damage roll: ${damageFormula} (${child.damageType || 'damage'})`);
                 } else {
                   console.log(`    ⏭️ Skipping non-roll formula: ${damageFormula} (hasDice: ${hasDiceNotation}, isHalfSave: ${isHalfDamageSave}, isVar: ${isVariableReference})`);
                 }
@@ -1777,7 +1793,7 @@
             } else {
               // Mark all damage rolls as temp HP
               damageRolls.forEach(roll => {
-                if (roll.damageType === 'untyped' || !roll.damageType || roll.damageType === 'healing') {
+                if (roll.damageType === 'damage' || !roll.damageType || roll.damageType === 'healing') {
                   roll.damageType = 'temphp';
                   debug.log(`  🛡️ Corrected ${prop.name} damage type to temphp`);
                 }
@@ -3648,9 +3664,11 @@
         // Extract authentication token from DiceCloud session
         try {
           // Try to get token from localStorage (Meteor.loginToken)
-          const loginToken = localStorage.getItem('Meteor.loginToken');
-          const loginTokenExpires = localStorage.getItem('Meteor.loginTokenExpires');
-          const userId = localStorage.getItem('Meteor.userId');
+          // Use page context access for Opera compatibility
+          const localStorageData = await getPageLocalStorage();
+          const loginToken = localStorageData['Meteor.loginToken'];
+          const loginTokenExpires = localStorageData['Meteor.loginTokenExpires'];
+          const userId = localStorageData['Meteor.userId'];
 
           if (loginToken && userId) {
             debug.log('✅ Found auth token in localStorage');
@@ -3693,20 +3711,22 @@
             if (displayUsername === 'DiceCloud User') {
               try {
                 debug.log('🔍 Checking localStorage for user data...');
-                const allKeys = Object.keys(localStorage);
+                // Get all localStorage keys from page context
+                const allLocalStorageData = await getAllPageLocalStorage();
+                const allKeys = Object.keys(allLocalStorageData);
                 debug.log('📋 All localStorage keys:', allKeys);
-                
-                const meteorUserKeys = allKeys.filter(key => 
-                  (key.includes('Meteor.user') || key.includes('user') || key.includes('User')) && 
-                  !key.includes('Meteor.userId') && 
+
+                const meteorUserKeys = allKeys.filter(key =>
+                  (key.includes('Meteor.user') || key.includes('user') || key.includes('User')) &&
+                  !key.includes('Meteor.userId') &&
                   !key.includes('Meteor.loginToken')
                 );
-                
+
                 debug.log('🔍 Found user-related localStorage keys:', meteorUserKeys);
-                
+
                 for (const meteorUserKey of meteorUserKeys) {
                   try {
-                    const userData = localStorage.getItem(meteorUserKey);
+                    const userData = allLocalStorageData[meteorUserKey];
                     debug.log(`📦 Raw data from key "${meteorUserKey}":`, userData?.substring(0, 200));
                     
                     if (userData) {
@@ -5821,27 +5841,50 @@
         return;
       }
 
-      const loginToken = localStorage.getItem('Meteor.loginToken');
-      const userId = localStorage.getItem('Meteor.userId');
+      // Try direct localStorage access (works in Chrome/Firefox when content script has access)
+      debug.log('🔍 Attempting direct localStorage access...');
+      let loginToken, userId, tokenExpires;
+
+      try {
+        loginToken = localStorage.getItem('Meteor.loginToken');
+        userId = localStorage.getItem('Meteor.userId');
+        tokenExpires = localStorage.getItem('Meteor.loginTokenExpires');
+        debug.log('✅ Direct access successful:', { hasToken: !!loginToken, hasUserId: !!userId });
+      } catch (directAccessError) {
+        debug.log('⚠️ Direct access failed:', directAccessError.message);
+        debug.log('ℹ️ Auto-login is not available in this browser due to content script isolation.');
+        debug.log('ℹ️ Please use manual login via the extension popup instead.');
+        return; // Exit early - cannot access localStorage
+      }
 
       if (loginToken && userId) {
         debug.log('🔄 Auto-refreshing DiceCloud auth token...');
+        debug.log('   Token:', loginToken.substring(0, 10) + '...');
+        debug.log('   User ID:', userId);
 
         // Save to extension storage
         await browserAPI.storage.local.set({
           diceCloudToken: loginToken,
           diceCloudUserId: userId,
-          tokenExpires: localStorage.getItem('Meteor.loginTokenExpires')
+          tokenExpires: tokenExpires
         });
 
-        debug.log('✅ Auth token auto-refreshed');
+        debug.log('✅ Auth token auto-refreshed successfully');
       } else {
-        debug.log('⚠️ No auth token found in localStorage (user may not be logged in)');
+        debug.log('⚠️ No auth token found in localStorage');
+        debug.log('   This is normal if you haven\'t logged into DiceCloud yet');
+        debug.log('   Please log in to DiceCloud and refresh the page');
       }
     } catch (error) {
-      debug.error('Failed to auto-refresh token:', error);
+      debug.error('❌ Failed to auto-refresh token:', error);
+      debug.error('   Error details:', error.message);
+      debug.error('   Stack:', error.stack);
     }
   }
+
+  // Note: Script injection methods removed due to Content Security Policy violations.
+  // DiceCloud's CSP blocks inline script execution, so we can only use direct localStorage access.
+  // This works in Chrome/Firefox but may not work in Opera or other browsers with strict content script isolation.
 
   // Initialize
   if (document.readyState === 'loading') {
@@ -5849,12 +5892,40 @@
       debug.log('📄 DOM loaded, adding buttons...');
       addSyncButton();
       observeRollLog();
+
+      // Try auto-refresh immediately
       autoRefreshToken();
+
+      // Retry after 2 seconds in case DiceCloud hasn't loaded yet
+      setTimeout(() => {
+        debug.log('🔄 Retrying auto-refresh (2s delay)...');
+        autoRefreshToken();
+      }, 2000);
+
+      // Final retry after 5 seconds for slow connections
+      setTimeout(() => {
+        debug.log('🔄 Final auto-refresh attempt (5s delay)...');
+        autoRefreshToken();
+      }, 5000);
     });
   } else {
     debug.log('📄 DOM already loaded, adding buttons...');
     addSyncButton();
     observeRollLog();
+
+    // Try auto-refresh immediately
     autoRefreshToken();
+
+    // Retry after 2 seconds in case DiceCloud hasn't loaded yet
+    setTimeout(() => {
+      debug.log('🔄 Retrying auto-refresh (2s delay)...');
+      autoRefreshToken();
+    }, 2000);
+
+    // Final retry after 5 seconds for slow connections
+    setTimeout(() => {
+      debug.log('🔄 Final auto-refresh attempt (5s delay)...');
+      autoRefreshToken();
+    }, 5000);
   }
 })();
