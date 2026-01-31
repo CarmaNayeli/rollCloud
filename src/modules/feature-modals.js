@@ -186,7 +186,7 @@
         </div>
       </div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-        <button id="gain-inspiration" style="padding: 15px; background: #27ae60; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">
+        <button id="gain-inspiration" style="padding: 15px; background: #c2185b; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">
           ⭐ Gain It
         </button>
         <button id="cancel-modal" style="padding: 15px; background: #95a5a6; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">
@@ -272,7 +272,7 @@
     modalContent.style.cssText = 'background: var(--bg-secondary); color: var(--text-primary); padding: 30px; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); min-width: 400px; max-width: 500px;';
 
     const lastRollInfo = characterData.lastRoll
-      ? `<div style="margin-bottom: 20px; padding: 12px; background: #e8f5e9; border-left: 4px solid #27ae60; border-radius: 4px;">
+      ? `<div style="margin-bottom: 20px; padding: 12px; background: #e8f5e9; border-left: 4px solid #c2185b; border-radius: 4px;">
            <strong>Last Roll:</strong> ${characterData.lastRoll.name}
          </div>`
       : `<div style="margin-bottom: 20px; padding: 12px; background: #ffebee; border-left: 4px solid #e74c3c; border-radius: 4px;">

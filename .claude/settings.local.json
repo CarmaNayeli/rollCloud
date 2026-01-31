@@ -14,7 +14,8 @@
       "Bash(powershell -Command:*)",
       "Bash(git merge:*)",
       "Read(//c/Users/c_dow/rollCloud/**)",
-      "Bash(git clone:*)"
+      "Bash(git clone:*)",
+      "Bash(xargs sed:*)"
     ]
   }
 }

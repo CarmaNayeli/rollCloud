@@ -12,7 +12,7 @@ function getColorEmoji(color) {
   const colorEmojiMap = {
     '#3498db': '🔵', // Blue
     '#e74c3c': '🔴', // Red
-    '#27ae60': '🟢', // Green
+    '#c2185b': '🟢', // Green
     '#9b59b6': '🟣', // Purple
     '#e67e22': '🟠', // Orange
     '#f1c40f': '🟡', // Yellow
@@ -32,7 +32,7 @@ function getColorName(hexColor) {
   const colorMap = {
     '#3498db': 'Blue',
     '#e74c3c': 'Red',
-    '#27ae60': 'Green',
+    '#c2185b': 'Green',
     '#9b59b6': 'Purple',
     '#e67e22': 'Orange',
     '#f1c40f': 'Yellow',

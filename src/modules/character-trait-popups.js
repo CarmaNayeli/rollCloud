@@ -893,17 +893,17 @@
 
     popupContent.innerHTML = `
       <div style="font-size: 24px; margin-bottom: 16px;">🧝</div>
-      <h2 style="margin: 0 0 8px 0; color: #27ae60;">Elven Accuracy!</h2>
+      <h2 style="margin: 0 0 8px 0; color: #c2185b;">Elven Accuracy!</h2>
       <p style="margin: 0 0 16px 0; color: ${colors.text};">
         You have advantage! Would you like to reroll the lower die?
       </p>
-      <div style="margin: 0 0 16px 0; padding: 12px; background: ${colors.infoBox}; border-radius: 8px; border-left: 4px solid #27ae60; color: ${colors.text};">
+      <div style="margin: 0 0 16px 0; padding: 12px; background: ${colors.infoBox}; border-radius: 8px; border-left: 4px solid #c2185b; color: ${colors.text};">
         <strong>Roll:</strong> ${rollData.rollName}<br>
         <strong>Type:</strong> Advantage attack roll
       </div>
       <div style="display: flex; gap: 12px; justify-content: center;">
         <button id="elvenRerollBtn" style="
-          background: #27ae60;
+          background: #c2185b;
           color: white;
           border: none;
           padding: 12px 24px;
@@ -932,8 +932,8 @@
     const rerollBtn = document.getElementById('elvenRerollBtn');
     const keepBtn = document.getElementById('elvenKeepBtn');
 
-    rerollBtn.addEventListener('mouseenter', () => rerollBtn.style.background = '#229954');
-    rerollBtn.addEventListener('mouseleave', () => rerollBtn.style.background = '#27ae60');
+    rerollBtn.addEventListener('mouseenter', () => rerollBtn.style.background = '#ad1457');
+    rerollBtn.addEventListener('mouseleave', () => rerollBtn.style.background = '#c2185b');
     keepBtn.addEventListener('mouseenter', () => keepBtn.style.background = '#7f8c8d');
     keepBtn.addEventListener('mouseleave', () => keepBtn.style.background = '#95a5a6');
 
@@ -972,7 +972,7 @@
     const rerollData = {
       name: `🧝 ${originalRollData.rollName} (Elven Accuracy - 3rd die)`,
       formula: '1d20',
-      color: '#27ae60',
+      color: '#c2185b',
       characterName: characterData.name
     };
 

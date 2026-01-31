@@ -134,7 +134,7 @@
       ">☁️ Cloud</span>`;
     } else {
       charNameEl.innerHTML = `${characterName} <span style="
-        background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+        background: linear-gradient(135deg, #c2185b 0%, #ad1457 100%);
         color: white;
         padding: 2px 8px;
         border-radius: 12px;

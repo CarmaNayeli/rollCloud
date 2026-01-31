@@ -1,0 +1,56 @@
+<!-- RollCloud Icon - Bright Green D20 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Outer glow -->
+    <radialGradient id="outerGlow" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#FC57F9;stop-opacity:0.3" />
+      <stop offset="50%" style="stop-color:#FC57F9;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#FC57F9;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- D20 gradient -->
+    <linearGradient id="d20gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FC57F9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E0682;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="128" height="128" fill="#000000"/>
+
+  <!-- Outer glow circle -->
+  <circle cx="64" cy="64" r="64" fill="url(#outerGlow)"/>
+
+  <!-- D20 icosahedron (simplified) -->
+  <g transform="translate(64, 64)" filter="url(#glow)">
+    <!-- Top pyramid -->
+    <path d="M 0,-35 L -30,-10 L 0,-5 Z" fill="url(#d20gradient)" stroke="#FC57F9" stroke-width="1.5"/>
+    <path d="M 0,-35 L 30,-10 L 0,-5 Z" fill="#8E0682" stroke="#FC57F9" stroke-width="1.5"/>
+
+    <!-- Middle band -->
+    <path d="M -30,-10 L -35,10 L 0,-5 Z" fill="#8E0682" stroke="#FC57F9" stroke-width="1.5"/>
+    <path d="M 30,-10 L 35,10 L 0,-5 Z" fill="#8E0682" stroke="#FC57F9" stroke-width="1.5"/>
+    <path d="M -35,10 L 0,15 L 0,-5 Z" fill="#8E0682" stroke="#FC57F9" stroke-width="1.5"/>
+    <path d="M 35,10 L 0,15 L 0,-5 Z" fill="#8E0682" stroke="#FC57F9" stroke-width="1.5"/>
+
+    <!-- Bottom pyramid -->
+    <path d="M 0,35 L -30,10 L 0,15 Z" fill="#6a0b5a" stroke="#FC57F9" stroke-width="1.5"/>
+    <path d="M 0,35 L 30,10 L 0,15 Z" fill="#6a0b5a" stroke="#FC57F9" stroke-width="1.5"/>
+    <path d="M -30,10 L -35,10 L 0,15 Z" fill="#3d0638" stroke="#FC57F9" stroke-width="1.5"/>
+    <path d="M 30,10 L 35,10 L 0,15 Z" fill="#3d0638" stroke="#FC57F9" stroke-width="1.5"/>
+
+    <!-- "20" text -->
+    <text x="0" y="8" text-anchor="middle" font-size="24" font-weight="bold"
+          fill="#ffffff" stroke="#FC57F9" stroke-width="0.5"
+          font-family="Arial, sans-serif">20</text>
+  </g>
+</svg>

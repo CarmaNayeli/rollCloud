@@ -89,7 +89,7 @@
     {
       name: 'Enlarge',
       icon: '⬆️',
-      color: '#27ae60',
+      color: '#c2185b',
       description: '+1d4 weapon damage, advantage on STR checks/saves',
       modifier: { damage: '1d4', strCheck: 'advantage', strSave: 'advantage' },
       autoApply: true
@@ -121,7 +121,7 @@
     {
       name: 'Enhance Ability',
       icon: '💪',
-      color: '#27ae60',
+      color: '#c2185b',
       description: 'Advantage on ability checks with chosen ability',
       modifier: { skill: 'advantage' },
       autoApply: false
@@ -189,7 +189,7 @@
     {
       name: 'Poisoned',
       icon: '☠️',
-      color: '#27ae60',
+      color: '#c2185b',
       description: 'Disadvantage on attack rolls and ability checks',
       modifier: { attack: 'disadvantage', skill: 'disadvantage' },
       autoApply: true
@@ -366,7 +366,7 @@
     const tabNav = document.createElement('div');
     tabNav.style.cssText = 'display: flex; background: #ecf0f1; border-bottom: 2px solid #bdc3c7;';
     tabNav.innerHTML = `
-      <button class="effects-tab-btn" data-tab="buffs" style="flex: 1; padding: 15px; background: var(--bg-tertiary); border: none; border-bottom: 3px solid #27ae60; cursor: pointer; font-weight: bold; font-size: 1em; color: #27ae60; transition: all 0.2s;">✨ Buffs</button>
+      <button class="effects-tab-btn" data-tab="buffs" style="flex: 1; padding: 15px; background: var(--bg-tertiary); border: none; border-bottom: 3px solid #c2185b; cursor: pointer; font-weight: bold; font-size: 1em; color: #c2185b; transition: all 0.2s;">✨ Buffs</button>
       <button class="effects-tab-btn" data-tab="debuffs" style="flex: 1; padding: 15px; background: transparent; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-weight: bold; font-size: 1em; color: var(--text-secondary); transition: all 0.2s;">💀 Debuffs</button>
     `;
 
@@ -430,8 +430,8 @@
         tabButtons.forEach(b => {
           if (b.dataset.tab === targetTab) {
             b.style.background = 'var(--bg-tertiary)';
-            b.style.color = targetTab === 'buffs' ? '#27ae60' : '#e74c3c';
-            b.style.borderBottom = `3px solid ${targetTab === 'buffs' ? '#27ae60' : '#e74c3c'}`;
+            b.style.color = targetTab === 'buffs' ? '#c2185b' : '#e74c3c';
+            b.style.borderBottom = `3px solid ${targetTab === 'buffs' ? '#c2185b' : '#e74c3c'}`;
           } else {
             b.style.background = 'transparent';
             b.style.color = '#7f8c8d';
@@ -612,7 +612,7 @@
     // Show buffs section
     if (activeBuffs.length > 0) {
       html += '<div style="margin-bottom: 15px;">';
-      html += '<div style="font-size: 0.85em; font-weight: bold; color: #27ae60; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><span>✨</span> BUFFS</div>';
+      html += '<div style="font-size: 0.85em; font-weight: bold; color: #c2185b; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><span>✨</span> BUFFS</div>';
       html += activeBuffs.map(effectName => {
         const effect = POSITIVE_EFFECTS.find(e => e.name === effectName);
         return `

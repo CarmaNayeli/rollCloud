@@ -53,7 +53,7 @@
     ensureAnimationStyles();
 
     const colors = {
-      success: '#27AE60',
+      success: '#FC57F9',
       error: '#E74C3C',
       info: '#FC57F9',
       warning: '#F39C12'

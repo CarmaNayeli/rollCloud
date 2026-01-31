@@ -113,7 +113,7 @@
     card.className = 'action-card'; // Reuse action card styling
     card.style.cssText = `
       background: var(--bg-card);
-      border-left: 4px solid ${item.equipped ? '#27ae60' : item.attuned ? '#9b59b6' : '#95a5a6'};
+      border-left: 4px solid ${item.equipped ? '#c2185b' : item.attuned ? '#9b59b6' : '#95a5a6'};
       padding: 15px;
       margin-bottom: 10px;
       border-radius: 6px;
@@ -147,7 +147,7 @@
     if (item.equipped) {
       const equippedBadge = document.createElement('span');
       equippedBadge.textContent = '⚔️ Equipped';
-      equippedBadge.style.cssText = 'background: #27ae60; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: bold;';
+      equippedBadge.style.cssText = 'background: #c2185b; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: bold;';
       nameSection.appendChild(equippedBadge);
     }
 

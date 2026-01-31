@@ -376,7 +376,7 @@
     const colorEmojiMap = {
       '#3498db': '🔵', // Blue
       '#e74c3c': '🔴', // Red
-      '#27ae60': '🟢', // Green
+      '#c2185b': '🟢', // Green
       '#9b59b6': '🟣', // Purple
       '#e67e22': '🟠', // Orange
       '#f1c40f': '🟡', // Yellow
@@ -1384,7 +1384,7 @@
       margin-bottom: 15px;
     `;
     controls.innerHTML = `
-      <button id="start-combat-btn" style="padding: 12px; background: #27ae60; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1em; grid-column: span 2; box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);">⚔️ Start Combat</button>
+      <button id="start-combat-btn" style="padding: 12px; background: #c2185b; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1em; grid-column: span 2; box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);">⚔️ Start Combat</button>
       <button id="prev-turn-btn" style="padding: 8px 12px; background: #3498db; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.85em; display: none;">← Prev</button>
       <button id="next-turn-btn" style="padding: 8px 12px; background: #FC57F9; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.85em; display: none;">Next →</button>
       <button id="clear-all-btn" style="padding: 8px 12px; background: #e74c3c; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.85em; grid-column: span 2;">🗑️ Clear All</button>
@@ -1476,7 +1476,7 @@
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
         <h3 style="margin: 0; font-size: 1.2em; color: #FC57F9;">Party Overview</h3>
         <div style="display: flex; gap: 8px;">
-          <button id="import-players-btn" style="padding: 8px 14px; background: #27ae60; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 0.95em; font-weight: bold;">📥 Import</button>
+          <button id="import-players-btn" style="padding: 8px 14px; background: #c2185b; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 0.95em; font-weight: bold;">📥 Import</button>
           <button id="refresh-players-btn" style="padding: 8px 14px; background: #9b59b6; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 0.95em; font-weight: bold;">🔄 Refresh</button>
         </div>
       </div>
@@ -1937,7 +1937,7 @@
           ${roll.formula}
         </div>
         <div style="display: flex; gap: 8px;">
-          <button class="reveal-roll-btn" data-roll-id="${roll.id}" style="flex: 1; padding: 8px; background: #27ae60; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.85em;">
+          <button class="reveal-roll-btn" data-roll-id="${roll.id}" style="flex: 1; padding: 8px; background: #c2185b; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.85em;">
             📢 Publish Roll
           </button>
           <button class="delete-roll-btn" data-roll-id="${roll.id}" style="padding: 8px 12px; background: #e74c3c; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 0.85em;">
@@ -2010,7 +2010,7 @@
    */
   function createPlayerHeader(name, player, playerId) {
     const hpPercent = player.maxHp > 0 ? (player.hp / player.maxHp) * 100 : 0;
-    const hpColor = hpPercent > 50 ? '#27ae60' : hpPercent > 25 ? '#f39c12' : '#e74c3c';
+    const hpColor = hpPercent > 50 ? '#c2185b' : hpPercent > 25 ? '#f39c12' : '#e74c3c';
     
     return `
       <div style="background: #34495e; border-radius: 8px; border-left: 4px solid ${hpColor}; overflow: hidden;">
@@ -2063,7 +2063,7 @@
       const player = playerData[name];
       const playerId = `player-${index}`;
       const hpPercent = player.maxHp > 0 ? (player.hp / player.maxHp) * 100 : 0;
-      const hpColor = hpPercent > 50 ? '#27ae60' : hpPercent > 25 ? '#f39c12' : '#e74c3c';
+      const hpColor = hpPercent > 50 ? '#c2185b' : hpPercent > 25 ? '#f39c12' : '#e74c3c';
 
       return createPlayerHeader(name, player, playerId) + `
 
@@ -2152,7 +2152,7 @@
                     <div style="font-size: 0.95em; font-weight: bold; margin-bottom: 6px;">💀 Death Saving Throws</div>
                     <div style="display: flex; justify-content: space-around; font-size: 0.9em;">
                       <div>
-                        <div style="color: #27ae60; font-weight: bold;">Successes</div>
+                        <div style="color: #c2185b; font-weight: bold;">Successes</div>
                         <div style="font-size: 1.3em; text-align: center;">✓ ${player.deathSaves.successes || 0}</div>
                       </div>
                       <div>
@@ -2619,7 +2619,7 @@ ${player.deathSaves ? `Death Saves: ✓${player.deathSaves.successes || 0} / ✗
             <span style="color: #ccc;">${entry.description}</span>
           </div>
           ${entry.damage ? `<div style="margin-top: 4px; font-size: 0.85em; color: #e74c3c;">Damage: ${entry.damage}</div>` : ''}
-          ${entry.healing ? `<div style="margin-top: 4px; font-size: 0.85em; color: #27ae60;">Healing: ${entry.healing}</div>` : ''}
+          ${entry.healing ? `<div style="margin-top: 4px; font-size: 0.85em; color: #c2185b;">Healing: ${entry.healing}</div>` : ''}
           ${entry.condition ? `<div style="margin-top: 4px; font-size: 0.85em; color: #f39c12;">Condition: ${entry.condition}</div>` : ''}
         </div>
       `;
@@ -3027,7 +3027,7 @@ ${player.deathSaves ? `Death Saves: ✓${player.deathSaves.successes || 0} / ✗
             <button class="rollcloud-delay-turn" data-combatant-index="${index}" style="width: 100%; background: #f39c12; color: #fff; border: none; border-radius: 4px; padding: 6px; cursor: pointer; font-weight: bold; font-size: 0.85em;">⏸️ Delay Turn</button>
           ` : ''}
           ${isActive && isDelayed ? `
-            <button class="rollcloud-undelay-turn" data-combatant-name="${combatant.name}" style="width: 100%; background: #27ae60; color: #fff; border: none; border-radius: 4px; padding: 6px; cursor: pointer; font-weight: bold; font-size: 0.85em;">▶️ Resume Turn</button>
+            <button class="rollcloud-undelay-turn" data-combatant-name="${combatant.name}" style="width: 100%; background: #c2185b; color: #fff; border: none; border-radius: 4px; padding: 6px; cursor: pointer; font-weight: bold; font-size: 0.85em;">▶️ Resume Turn</button>
           ` : ''}
         </div>
       `;
@@ -3046,7 +3046,7 @@ ${player.deathSaves ? `Death Saves: ✓${player.deathSaves.successes || 0} / ✗
                 <div style="font-weight: bold;">${delayed.name}</div>
                 <div style="font-size: 0.75em; opacity: 0.8;">Initiative: ${delayed.initiative}</div>
               </div>
-              <button class="rollcloud-insert-delayed" data-delayed-name="${delayed.name}" style="background: #27ae60; color: #fff; border: none; border-radius: 4px; padding: 6px 12px; cursor: pointer; font-weight: bold; font-size: 0.85em;">▶️ Act Now</button>
+              <button class="rollcloud-insert-delayed" data-delayed-name="${delayed.name}" style="background: #c2185b; color: #fff; border: none; border-radius: 4px; padding: 6px 12px; cursor: pointer; font-weight: bold; font-size: 0.85em;">▶️ Act Now</button>
             </div>
           `).join('')}
         </div>

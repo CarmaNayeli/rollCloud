@@ -426,7 +426,7 @@
             damageType: damageRoll.damageType,
             healingRatio: healingRatio,
             icon: '💉',
-            color: 'linear-gradient(135deg, #c0392b 0%, #27ae60 100%)'
+            color: 'linear-gradient(135deg, #c0392b 0%, #c2185b 100%)'
           });
         }
       } else {
@@ -495,7 +495,7 @@
                 damageType: choice.damageType,
                 index: index,
                 icon: choiceIsTempHP ? '🛡️' : (isHealing ? '💚' : '💥'),
-                color: choiceIsTempHP ? '#3498db' : (isHealing ? '#27ae60' : '#e67e22')
+                color: choiceIsTempHP ? '#3498db' : (isHealing ? '#c2185b' : '#e67e22')
               });
             });
           } else {
@@ -517,7 +517,7 @@
               damageType: roll.damageType,
               index: index,
               icon: isTempHP ? '🛡️' : (isHealing ? '💚' : '💥'),
-              color: isTempHP ? '#3498db' : (isHealing ? '#27ae60' : '#e67e22')
+              color: isTempHP ? '#3498db' : (isHealing ? '#c2185b' : '#e67e22')
             });
           }
         });

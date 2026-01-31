@@ -2396,7 +2396,7 @@ function initializePopup() {
     if (statusDiv) {
       statusDiv.style.display = 'block';
       statusDiv.textContent = message;
-      statusDiv.style.color = type === 'success' ? '#27ae60' : '#e74c3c';
+      statusDiv.style.color = type === 'success' ? '#c2185b' : '#e74c3c';
 
       setTimeout(() => {
         statusDiv.style.display = 'none';

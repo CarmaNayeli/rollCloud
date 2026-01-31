@@ -96,7 +96,7 @@
     const colors = [
       { name: 'Blue', value: '#3498db', emoji: '🔵' },
       { name: 'Red', value: '#e74c3c', emoji: '🔴' },
-      { name: 'Green', value: '#27ae60', emoji: '🟢' },
+      { name: 'Green', value: '#c2185b', emoji: '🟢' },
       { name: 'Purple', value: '#9b59b6', emoji: '🟣' },
       { name: 'Orange', value: '#e67e22', emoji: '🟠' },
       { name: 'Yellow', value: '#f1c40f', emoji: '🟡' },

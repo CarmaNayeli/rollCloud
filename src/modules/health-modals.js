@@ -43,7 +43,7 @@ function showHPModal() {
     <div style="margin-bottom: 25px;">
       <label style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--text-primary);">Action:</label>
       <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
-        <button id="hp-toggle-heal" style="padding: 12px; font-size: 0.9em; font-weight: bold; border: 2px solid #27ae60; background: #27ae60; color: white; border-radius: 6px; cursor: pointer; transition: all 0.2s;">
+        <button id="hp-toggle-heal" style="padding: 12px; font-size: 0.9em; font-weight: bold; border: 2px solid #c2185b; background: #c2185b; color: white; border-radius: 6px; cursor: pointer; transition: all 0.2s;">
           💚 Heal
         </button>
         <button id="hp-toggle-damage" style="padding: 12px; font-size: 0.9em; font-weight: bold; border: 2px solid var(--border-color); background: var(--bg-tertiary); color: var(--text-secondary); border-radius: 6px; cursor: pointer; transition: all 0.2s;">
@@ -93,9 +93,9 @@ function showHPModal() {
   healBtn.addEventListener('click', () => {
     actionType = 'heal';
     resetButtons();
-    healBtn.style.background = '#27ae60';
+    healBtn.style.background = '#c2185b';
     healBtn.style.color = 'white';
-    healBtn.style.borderColor = '#27ae60';
+    healBtn.style.borderColor = '#c2185b';
   });
 
   damageBtn.addEventListener('click', () => {
@@ -268,7 +268,7 @@ function showDeathSavesModal() {
     <h3 style="margin: 0 0 20px 0; color: var(--text-primary); text-align: center;">Death Saves</h3>
     <div style="text-align: center; font-size: 1.2em; margin-bottom: 20px;">
       <div style="margin-bottom: 10px;">
-        <span style="color: #27ae60; font-weight: bold;">Successes: ${successes}/3</span>
+        <span style="color: #c2185b; font-weight: bold;">Successes: ${successes}/3</span>
       </div>
       <div>
         <span style="color: #e74c3c; font-weight: bold;">Failures: ${failures}/3</span>
@@ -284,7 +284,7 @@ function showDeathSavesModal() {
     <div style="margin-bottom: 20px; border-top: 1px solid #ecf0f1; padding-top: 20px;">
       <label style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--text-primary);">Manual Adjustment:</label>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
-        <button id="add-success" style="padding: 10px; background: #27ae60; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">
+        <button id="add-success" style="padding: 10px; background: #c2185b; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">
           + Success
         </button>
         <button id="add-failure" style="padding: 10px; background: #e74c3c; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">

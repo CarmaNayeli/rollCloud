@@ -578,7 +578,7 @@
       }
 
       .ability-mod {
-        color: #27AE60;
+        color: #FC57F9;
         font-weight: bold;
       }
 
@@ -1713,7 +1713,7 @@
       position: fixed;
       top: 20px;
       right: 20px;
-      background: ${type === 'success' ? '#27AE60' : type === 'error' ? '#E74C3C' : '#FC57F9'};
+      background: ${type === 'success' ? '#FC57F9' : type === 'error' ? '#E74C3C' : '#FC57F9'};
       color: white;
       padding: 15px 20px;
       border-radius: 8px;

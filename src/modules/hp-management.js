@@ -54,7 +54,7 @@
       <div style="margin-bottom: 25px;">
         <label style="display: block; margin-bottom: 10px; font-weight: bold; color: var(--text-primary);">Action:</label>
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
-          <button id="hp-toggle-heal" style="padding: 12px; font-size: 0.9em; font-weight: bold; border: 2px solid #27ae60; background: #27ae60; color: white; border-radius: 6px; cursor: pointer; transition: all 0.2s;">
+          <button id="hp-toggle-heal" style="padding: 12px; font-size: 0.9em; font-weight: bold; border: 2px solid #c2185b; background: #c2185b; color: white; border-radius: 6px; cursor: pointer; transition: all 0.2s;">
             💚 Heal
           </button>
           <button id="hp-toggle-damage" style="padding: 12px; font-size: 0.9em; font-weight: bold; border: 2px solid var(--border-color); background: var(--bg-tertiary); color: var(--text-secondary); border-radius: 6px; cursor: pointer; transition: all 0.2s;">
@@ -104,9 +104,9 @@
     healBtn.addEventListener('click', () => {
       actionType = 'heal';
       resetButtons();
-      healBtn.style.background = '#27ae60';
+      healBtn.style.background = '#c2185b';
       healBtn.style.color = 'white';
-      healBtn.style.borderColor = '#27ae60';
+      healBtn.style.borderColor = '#c2185b';
     });
 
     damageBtn.addEventListener('click', () => {

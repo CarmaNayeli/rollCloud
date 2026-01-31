@@ -67,7 +67,7 @@
         label: btnText,
         formula: action.damage,
         icon: isTempHP ? '🛡️' : (isHealing ? '💚' : '💥'),
-        color: isTempHP ? '#3498db' : (isHealing ? '#27ae60' : '#e67e22')
+        color: isTempHP ? '#3498db' : (isHealing ? '#c2185b' : '#e67e22')
       });
     }
 

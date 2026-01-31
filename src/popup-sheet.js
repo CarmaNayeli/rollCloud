@@ -485,7 +485,7 @@ async function loadCharacterWithTabs() {
               <div style="background: #2c3e50; padding: 20px; border-radius: 8px; margin: 20px 0;">
                 <p style="margin-bottom: 10px; font-weight: bold;">To fix this:</p>
                 <ol style="text-align: left; max-width: 500px; margin: 0 auto; line-height: 1.8;">
-                  <li>Go to your character on <a href="https://dicecloud.com" target="_blank" style="color: #3498db;">DiceCloud.com</a></li>
+                  <li>Go to your character on <a href="https://dicecloud.com" target="_blank" style="color: #FC57F9;">DiceCloud.com</a></li>
                   <li>Click the <strong>"Sync to Extension"</strong> button on the character page</li>
                   <li>Wait for the sync to complete</li>
                   <li>Reopen this character sheet</li>
@@ -963,7 +963,7 @@ function setAdvantageState(state) {
     if (btn) {
       btn.classList.remove('active');
       const color = btn.id.includes('advantage') ? 'var(--accent-success)' :
-                   btn.id.includes('normal') ? '#3498db' :
+                   btn.id.includes('normal') ? '#FC57F9' :
                    'var(--accent-danger)';
       btn.style.background = 'transparent';
       btn.style.color = color;
@@ -979,7 +979,7 @@ function setAdvantageState(state) {
   if (activeBtn) {
     activeBtn.classList.add('active');
     const color = state === 'advantage' ? 'var(--accent-success)' :
-                 state === 'normal' ? '#3498db' :
+                 state === 'normal' ? '#FC57F9' :
                  'var(--accent-danger)';
     activeBtn.style.background = color;
     activeBtn.style.color = 'white';

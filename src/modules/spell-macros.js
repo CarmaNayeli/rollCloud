@@ -79,7 +79,7 @@
         <!-- Macro buttons will be added here -->
       </div>
 
-      <button id="add-macro-btn" style="padding: 8px 16px; background: #27ae60; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-bottom: 16px;">
+      <button id="add-macro-btn" style="padding: 8px 16px; background: #c2185b; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-bottom: 16px;">
         ➕ Add Macro Button
       </button>
 
