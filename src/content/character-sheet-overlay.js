@@ -2108,7 +2108,7 @@
       top: 20px;
       left: 50%;
       transform: translateX(-50%);
-      background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+      background: linear-gradient(135deg, #FC57F9 0%, #8E0682 100%);
       color: white;
       border: none;
       padding: 12px 20px;
@@ -2116,7 +2116,7 @@
       cursor: pointer;
       font-size: 14px;
       font-weight: bold;
-      box-shadow: 0 4px 15px rgba(78, 205, 196, 0.2);
+      box-shadow: 0 4px 15px rgba(252, 87, 249, 0.3);
       z-index: 999998;
       transition: transform 0.2s, box-shadow 0.2s;
       user-select: none;
@@ -2127,14 +2127,14 @@
       if (!button.style.left || button.style.left === '50%') {
         button.style.transform = 'translateX(-50%) translateY(-2px)';
       }
-      button.style.boxShadow = '0 6px 20px rgba(78, 205, 196, 0.3)';
+      button.style.boxShadow = '0 6px 20px rgba(252, 87, 249, 0.5)';
     });
 
     button.addEventListener('mouseleave', () => {
       if (!button.style.left || button.style.left === '50%') {
         button.style.transform = 'translateX(-50%) translateY(0)';
       }
-      button.style.boxShadow = '0 4px 15px rgba(78, 205, 196, 0.2)';
+      button.style.boxShadow = '0 4px 15px rgba(252, 87, 249, 0.3)';
     });
 
     // Click to open popup
