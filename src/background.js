@@ -2450,7 +2450,7 @@ async function testDiscordWebhook(webhookUrl) {
       embeds: [{
         title: '🎲 RollCloud Connected!',
         description: 'Discord webhook integration is working correctly.',
-        color: 0x4ECDC4, // Teal color matching the extension theme
+        color: 0xFC57F9, // Teal color matching the extension theme
         footer: {
           text: 'RollCloud - Dice Cloud → Roll20 Bridge'
         },
@@ -2575,7 +2575,7 @@ function buildDiscordMessage(payload) {
       embeds: [{
         title: `🎲 ${characterName}'s Turn`,
         description: actionStatus || 'Combat turn started!',
-        color: 0x4ECDC4, // Teal - active turn
+        color: 0xFC57F9, // Teal - active turn
         fields: [
           { name: 'Character', value: characterName, inline: true },
           ...(round ? [{ name: 'Round', value: String(round), inline: true }] : []),
@@ -2609,7 +2609,7 @@ function buildDiscordMessage(payload) {
       embeds: [{
         title: `⚔️ ${characterName}`,
         description: actionStatus,
-        color: hasUsedActions ? 0xF39C12 : 0x4ECDC4, // Orange if actions used, teal if available
+        color: hasUsedActions ? 0xF39C12 : 0xFC57F9, // Orange if actions used, teal if available
         fields: [
           { name: 'Character', value: characterName, inline: true },
           { name: 'Status', value: hasUsedActions ? 'Actions Used' : 'Actions Available', inline: true }
@@ -2652,7 +2652,7 @@ function buildDiscordMessage(payload) {
       embeds: [{
         title: `🎲 ${characterName} rolls ${rollName}`,
         description: `**${rollDisplay}**`,
-        color: 0x4ECDC4, // Teal - roll
+        color: 0xFC57F9, // Teal - roll
         fields: [
           { name: 'Character', value: characterName || 'Unknown', inline: true },
           { name: 'Roll', value: rollDisplay, inline: true }

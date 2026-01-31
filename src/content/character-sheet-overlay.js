@@ -854,7 +854,7 @@
       .stat-value {
         font-size: 1.5em;
         font-weight: bold;
-        color: #667eea;
+        color: #FC57F9;
       }
 
       .setting-group {
@@ -895,7 +895,7 @@
 
       .toggle-btn.active {
         background: #3d0638;
-        border-color: #4ECDC4;
+        border-color: #FC57F9;
         color: white;
         box-shadow: 0 2px 8px rgba(78, 205, 196, 0.3);
       }
@@ -929,7 +929,7 @@
         background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
         padding: 12px;
         border-radius: 8px;
-        border: 1px solid #667eea;
+        border: 1px solid #FC57F9;
         cursor: pointer;
         transition: transform 0.2s, box-shadow 0.2s;
       }
@@ -973,7 +973,7 @@
         font-size: 11px;
         padding: 2px 6px;
         border-radius: 4px;
-        background: #667eea;
+        background: #FC57F9;
         color: white;
       }
 
@@ -1713,7 +1713,7 @@
       position: fixed;
       top: 20px;
       right: 20px;
-      background: ${type === 'success' ? '#27AE60' : type === 'error' ? '#E74C3C' : '#4ECDC4'};
+      background: ${type === 'success' ? '#27AE60' : type === 'error' ? '#E74C3C' : '#FC57F9'};
       color: white;
       padding: 15px 20px;
       border-radius: 8px;
@@ -2554,7 +2554,7 @@
         width: 16px;
         height: 16px;
         cursor: nwse-resize;
-        background: linear-gradient(135deg, transparent 50%, #4ECDC4 50%);
+        background: linear-gradient(135deg, transparent 50%, #FC57F9 50%);
         border-radius: 0 0 8px 0;
         opacity: 0.5;
         transition: opacity 0.2s;

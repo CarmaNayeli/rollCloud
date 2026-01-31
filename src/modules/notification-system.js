@@ -55,7 +55,7 @@
     const colors = {
       success: '#27AE60',
       error: '#E74C3C',
-      info: '#4ECDC4',
+      info: '#FC57F9',
       warning: '#F39C12'
     };
 
