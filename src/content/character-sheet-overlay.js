@@ -444,17 +444,17 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        border: 2px solid #ec407a;
+        border: 2px solid #FC57F9;
       }
 
       .rollcloud-header {
-        background: #2d0a1f;
+        background: #3d0638;
         color: white;
         padding: 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 2px solid #ec407a;
+        border-bottom: 2px solid #FC57F9;
       }
 
       .sheet-title h2 {
@@ -500,7 +500,7 @@
       .section h3 {
         margin: 0 0 15px 0;
         color: #e0e0e0;
-        border-bottom: 2px solid #ec407a;
+        border-bottom: 2px solid #FC57F9;
         padding-bottom: 5px;
       }
 
@@ -511,11 +511,11 @@
       }
 
       .ability-card {
-        background: #2d0a1f;
+        background: #3d0638;
         padding: 15px;
         border-radius: 12px;
         text-align: center;
-        border: 2px solid #ec407a;
+        border: 2px solid #FC57F9;
         transition: transform 0.2s;
         position: relative;
         cursor: pointer;
@@ -534,7 +534,7 @@
         position: absolute;
         top: 5px;
         right: 5px;
-        background: #ec407a;
+        background: #FC57F9;
         color: white;
         border: none;
         width: 24px;
@@ -549,7 +549,7 @@
       }
 
       .skill-roll-btn {
-        background: #ec407a;
+        background: #FC57F9;
         color: white;
         border: none;
         padding: 4px 8px;
@@ -560,7 +560,7 @@
       }
 
       .skill-roll-btn:hover {
-        background: #c2185b;
+        background: #8E0682;
       }
 
       .ability-name {
@@ -573,7 +573,7 @@
       .ability-score {
         font-size: 2em;
         font-weight: bold;
-        color: #ec407a;
+        color: #FC57F9;
         line-height: 1;
       }
 
@@ -589,11 +589,11 @@
       }
 
       .combat-stat, .resource-card {
-        background: #2d0a1f;
+        background: #3d0638;
         padding: 15px;
         border-radius: 8px;
         text-align: center;
-        border: 1px solid #ec407a;
+        border: 1px solid #FC57F9;
       }
 
       .combat-stat label, .resource-card label {
@@ -607,7 +607,7 @@
       .combat-stat .value, .resource-card .value {
         font-size: 1.4em;
         font-weight: bold;
-        color: #ec407a;
+        color: #FC57F9;
       }
 
       .hp-input-group {
@@ -621,21 +621,21 @@
         text-align: center;
         font-size: 1.2em;
         font-weight: bold;
-        color: #ec407a;
+        color: #FC57F9;
         background: #1a1a1a;
-        border: 2px solid #ec407a;
+        border: 2px solid #FC57F9;
         border-radius: 4px;
         padding: 4px;
       }
 
       .hp-separator {
         font-weight: bold;
-        color: #ec407a;
+        color: #FC57F9;
         font-size: 1.2em;
       }
 
       .initiative-btn {
-        background: #ec407a;
+        background: #FC57F9;
         color: white;
         border: none;
         padding: 8px 12px;
@@ -647,7 +647,7 @@
       }
 
       .initiative-btn:hover {
-        background: #c2185b;
+        background: #8E0682;
         transform: translateY(-1px);
         box-shadow: 0 2px 8px rgba(78, 205, 196, 0.3);
       }
@@ -659,10 +659,10 @@
       }
 
       .save-card, .skill-card {
-        background: #2d0a1f;
+        background: #3d0638;
         padding: 10px;
         border-radius: 8px;
-        border: 1px solid #ec407a;
+        border: 1px solid #FC57F9;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -682,11 +682,11 @@
 
       .save-bonus, .skill-bonus {
         font-weight: bold;
-        color: #ec407a;
+        color: #FC57F9;
         background: #1a1a1a;
         padding: 2px 8px;
         border-radius: 12px;
-        border: 1px solid #ec407a;
+        border: 1px solid #FC57F9;
       }
 
       #variables-grid {
@@ -696,10 +696,10 @@
       }
 
       .variable-card {
-        background: #2d0a1f;
+        background: #3d0638;
         padding: 10px;
         border-radius: 8px;
-        border: 1px solid #ec407a;
+        border: 1px solid #FC57F9;
       }
 
       .variable-name {
@@ -709,7 +709,7 @@
       }
 
       .variable-value {
-        color: #ec407a;
+        color: #FC57F9;
         font-weight: bold;
       }
 
@@ -722,14 +722,14 @@
       }
 
       .panel-section {
-        background: #2d0a1f;
+        background: #3d0638;
         border-radius: 12px;
-        border: 1px solid #ec407a;
+        border: 1px solid #FC57F9;
         overflow: hidden;
       }
 
       .panel-header {
-        background: #2d0a1f;
+        background: #3d0638;
         color: white;
         padding: 15px 20px;
         display: flex;
@@ -777,7 +777,7 @@
         padding: 12px;
         border-radius: 8px;
         margin-bottom: 8px;
-        border: 1px solid #ec407a;
+        border: 1px solid #FC57F9;
         animation: slideIn 0.3s ease-out;
       }
 
@@ -799,7 +799,7 @@
 
       .history-formula {
         font-family: 'Courier New', monospace;
-        color: #ec407a;
+        color: #FC57F9;
         font-weight: bold;
       }
 
@@ -894,7 +894,7 @@
       }
 
       .toggle-btn.active {
-        background: #2d0a1f;
+        background: #3d0638;
         border-color: #4ECDC4;
         color: white;
         box-shadow: 0 2px 8px rgba(78, 205, 196, 0.3);
@@ -908,7 +908,7 @@
         color: #e0e0e0;
         text-align: center;
         margin-top: 10px;
-        border: 1px solid #ec407a;
+        border: 1px solid #FC57F9;
       }
 
       .empty-state {
@@ -2297,7 +2297,7 @@
         padding: 8px;
         border-radius: 8px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        border: 1px solid #ec407a;
+        border: 1px solid #FC57F9;
         display: flex;
         flex-direction: column;
         gap: 5px;
@@ -2315,7 +2315,7 @@
       .status-char-name {
         font-size: 14px;
         font-weight: bold;
-        color: #ec407a;
+        color: #FC57F9;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -2357,7 +2357,7 @@
 
       .status-hp-fill {
         height: 100%;
-        background: linear-gradient(90deg, #c2185b, #ec407a);
+        background: linear-gradient(90deg, #8E0682, #FC57F9);
         transition: width 0.3s ease;
       }
 
@@ -2401,11 +2401,11 @@
         transition: all 0.2s;
       }
 
-      .status-adv-btn.adv { color: #c2185b; }
+      .status-adv-btn.adv { color: #8E0682; }
       .status-adv-btn.norm { color: #888; }
       .status-adv-btn.dis { color: #e74c3c; }
 
-      .status-adv-btn.active.adv { background: #c2185b; color: white; }
+      .status-adv-btn.active.adv { background: #8E0682; color: white; }
       .status-adv-btn.active.norm { background: #3498db; color: white; }
       .status-adv-btn.active.dis { background: #e74c3c; color: white; }
 
@@ -2530,7 +2530,7 @@
       }
 
       .status-effect-badge.buff {
-        background: #c2185b;
+        background: #8E0682;
         color: white;
       }
 

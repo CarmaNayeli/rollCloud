@@ -1339,7 +1339,7 @@
       max-width: 90vw;
       max-height: 90vh;
       background: #1e1e1e;
-      border: 2px solid #ec407a;
+      border: 2px solid #FC57F9;
       border-radius: 12px;
       z-index: 999998;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -1386,7 +1386,7 @@
     controls.innerHTML = `
       <button id="start-combat-btn" style="padding: 12px; background: #27ae60; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1em; grid-column: span 2; box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);">⚔️ Start Combat</button>
       <button id="prev-turn-btn" style="padding: 8px 12px; background: #3498db; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.85em; display: none;">← Prev</button>
-      <button id="next-turn-btn" style="padding: 8px 12px; background: #ec407a; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.85em; display: none;">Next →</button>
+      <button id="next-turn-btn" style="padding: 8px 12px; background: #FC57F9; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.85em; display: none;">Next →</button>
       <button id="clear-all-btn" style="padding: 8px 12px; background: #e74c3c; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.85em; grid-column: span 2;">🗑️ Clear All</button>
     `;
 
@@ -1474,7 +1474,7 @@
     // ===== PLAYER OVERVIEW TAB CONTENT =====
     playersTab.innerHTML = `
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-        <h3 style="margin: 0; font-size: 1.2em; color: #ec407a;">Party Overview</h3>
+        <h3 style="margin: 0; font-size: 1.2em; color: #FC57F9;">Party Overview</h3>
         <div style="display: flex; gap: 8px;">
           <button id="import-players-btn" style="padding: 8px 14px; background: #27ae60; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 0.95em; font-weight: bold;">📥 Import</button>
           <button id="refresh-players-btn" style="padding: 8px 14px; background: #9b59b6; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 0.95em; font-weight: bold;">🔄 Refresh</button>
@@ -1491,7 +1491,7 @@
     // ===== TURN HISTORY TAB CONTENT =====
     historyTab.innerHTML = `
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-        <h3 style="margin: 0; font-size: 1em; color: #ec407a;">Last 10 Turns</h3>
+        <h3 style="margin: 0; font-size: 1em; color: #FC57F9;">Last 10 Turns</h3>
         <button id="export-history-btn" style="padding: 6px 12px; background: #3498db; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 0.8em;">📋 Copy</button>
       </div>
       <div id="turn-history-empty-state" style="text-align: center; padding: 20px; color: #888;">
@@ -1510,13 +1510,13 @@
       align-items: center;
       padding: 15px;
       background: #1e1e1e;
-      border-bottom: 2px solid #ec407a;
+      border-bottom: 2px solid #FC57F9;
       cursor: move;
       user-select: none;
     `;
     header.innerHTML = `
       <div>
-        <h2 style="margin: 0; font-size: 1.2em; color: #ec407a;">👑 GM Panel</h2>
+        <h2 style="margin: 0; font-size: 1.2em; color: #FC57F9;">👑 GM Panel</h2>
         <div style="display: flex; align-items: center; gap: 15px; margin-top: 8px;">
           <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9em; color: #aaa; cursor: pointer;">
             <input type="checkbox" id="silent-rolls-toggle" style="width: 16px; height: 16px; cursor: pointer;" />
@@ -1536,7 +1536,7 @@
       border-bottom: 1px solid #34495e;
     `;
     tabNav.innerHTML = `
-      <button class="gm-tab-btn" data-tab="initiative" style="flex: 1; padding: 12px; background: #2a2a2a; color: #ec407a; border: none; border-bottom: 3px solid #ec407a; cursor: pointer; font-weight: bold; font-size: 0.9em; transition: all 0.2s;">⚔️ Initiative</button>
+      <button class="gm-tab-btn" data-tab="initiative" style="flex: 1; padding: 12px; background: #2a2a2a; color: #FC57F9; border: none; border-bottom: 3px solid #FC57F9; cursor: pointer; font-weight: bold; font-size: 0.9em; transition: all 0.2s;">⚔️ Initiative</button>
       <button class="gm-tab-btn" data-tab="history" style="flex: 1; padding: 12px; background: transparent; color: #888; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-weight: bold; font-size: 0.9em; transition: all 0.2s;">📜 History</button>
       <button class="gm-tab-btn" data-tab="hidden-rolls" style="flex: 1; padding: 12px; background: transparent; color: #888; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-weight: bold; font-size: 0.9em; transition: all 0.2s;">🎲 Hidden Rolls</button>
       <button class="gm-tab-btn" data-tab="players" style="flex: 1; padding: 12px; background: transparent; color: #888; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-weight: bold; font-size: 0.9em; transition: all 0.2s;">👥 Players</button>
@@ -1787,8 +1787,8 @@
         tabButtons.forEach(b => {
           if (b.dataset.tab === targetTab) {
             b.style.background = '#2a2a2a';
-            b.style.color = '#ec407a';
-            b.style.borderBottom = '3px solid #ec407a';
+            b.style.color = '#FC57F9';
+            b.style.borderBottom = '3px solid #FC57F9';
           } else {
             b.style.background = 'transparent';
             b.style.color = '#888';
@@ -2017,7 +2017,7 @@
         <!-- Player Header (always visible) -->
         <div class="player-header-btn" data-player-name="${name}" style="padding: 12px; cursor: pointer; user-select: none; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s;" onmouseover="this.style.background='#3d5a6e'" onmouseout="this.style.background='transparent'">
           <div style="flex: 1;">
-            <div style="font-weight: bold; font-size: 1.1em; color: #ec407a; margin-bottom: 4px;">${name}</div>
+            <div style="font-weight: bold; font-size: 1.1em; color: #FC57F9; margin-bottom: 4px;">${name}</div>
             <div style="display: flex; gap: 12px; font-size: 0.95em; color: #ccc;">
               <span>HP: ${player.hp}/${player.maxHp}</span>
               <span>AC: ${player.ac || '—'}</span>
@@ -2072,7 +2072,7 @@
             <div style="padding: 0 12px 12px 12px;">
               <!-- Character Sub-tabs -->
               <div style="display: flex; gap: 4px; margin-bottom: 10px; border-bottom: 1px solid #2c3e50;">
-                <button class="player-subtab-btn" data-player="${playerId}" data-subtab="overview" style="padding: 8px 12px; background: transparent; color: #ec407a; border: none; border-bottom: 2px solid #ec407a; cursor: pointer; font-size: 0.9em; font-weight: bold;">Overview</button>
+                <button class="player-subtab-btn" data-player="${playerId}" data-subtab="overview" style="padding: 8px 12px; background: transparent; color: #FC57F9; border: none; border-bottom: 2px solid #FC57F9; cursor: pointer; font-size: 0.9em; font-weight: bold;">Overview</button>
                 <button class="player-subtab-btn" data-player="${playerId}" data-subtab="combat" style="padding: 8px 12px; background: transparent; color: #888; border: none; border-bottom: 2px solid transparent; cursor: pointer; font-size: 0.9em;">Combat</button>
                 <button class="player-subtab-btn" data-player="${playerId}" data-subtab="status" style="padding: 8px 12px; background: transparent; color: #888; border: none; border-bottom: 2px solid transparent; cursor: pointer; font-size: 0.9em;">Status</button>
               </div>
@@ -2421,8 +2421,8 @@
         // Update button styles
         newSubtabBtns.forEach(b => {
           if (b.dataset.subtab === targetSubtab) {
-            b.style.color = '#ec407a';
-            b.style.borderBottom = '2px solid #ec407a';
+            b.style.color = '#FC57F9';
+            b.style.borderBottom = '2px solid #FC57F9';
           } else {
             b.style.color = '#888';
             b.style.borderBottom = '2px solid transparent';
@@ -2609,7 +2609,7 @@ ${player.deathSaves ? `Death Saves: ✓${player.deathSaves.successes || 0} / ✗
         <div style="background: #34495e; padding: 10px; border-radius: 6px; border-left: 4px solid #3498db;">
           <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 6px;">
             <div>
-              <span style="font-weight: bold; color: #ec407a;">${entry.combatant}</span>
+              <span style="font-weight: bold; color: #FC57F9;">${entry.combatant}</span>
               <span style="font-size: 0.75em; color: #888; margin-left: 8px;">Round ${entry.round}</span>
             </div>
             <span style="font-size: 0.75em; color: #888;">${entry.timestamp}</span>
@@ -2705,10 +2705,10 @@ ${player.deathSaves ? `Death Saves: ✓${player.deathSaves.successes || 0} / ✗
 
     // Visual feedback - enhance glow when active
     if (gmModeEnabled) {
-      gmPanel.style.borderColor = '#ec407a'; // Cyan border
+      gmPanel.style.borderColor = '#FC57F9'; // Cyan border
       gmPanel.style.boxShadow = '0 8px 32px rgba(78, 205, 196, 0.6)'; // Enhanced cyan glow when active
     } else {
-      gmPanel.style.borderColor = '#ec407a'; // Cyan border
+      gmPanel.style.borderColor = '#FC57F9'; // Cyan border
       gmPanel.style.boxShadow = '0 8px 32px rgba(0,0,0,0.5)'; // Default shadow
     }
 
@@ -3014,7 +3014,7 @@ ${player.deathSaves ? `Death Saves: ✓${player.deathSaves.successes || 0} / ✗
       const isDelayed = initiativeTracker.delayedCombatants.some(d => d.name === combatant.name);
 
       return `
-        <div style="padding: 10px; background: ${isActive ? '#ec407a' : isDelayed ? '#9b59b6' : '#34495e'}; border: 2px solid ${isActive ? '#ec407a' : isDelayed ? '#8e44ad' : '#2c3e50'}; border-radius: 6px; ${isActive ? 'box-shadow: 0 0 15px rgba(78, 205, 196, 0.4);' : ''}">
+        <div style="padding: 10px; background: ${isActive ? '#FC57F9' : isDelayed ? '#9b59b6' : '#34495e'}; border: 2px solid ${isActive ? '#FC57F9' : isDelayed ? '#8e44ad' : '#2c3e50'}; border-radius: 6px; ${isActive ? 'box-shadow: 0 0 15px rgba(78, 205, 196, 0.4);' : ''}">
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: ${isActive ? '8px' : '0'};">
             <div style="font-weight: bold; font-size: 1.2em; min-width: 30px; text-align: center;">${combatant.initiative}</div>
             <div style="flex: 1; font-weight: bold;">

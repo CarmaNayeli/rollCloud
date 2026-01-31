@@ -16,18 +16,18 @@ body {
   min-height: 500px;
   display: flex;
   flex-direction: column;
-  border: 2px solid #ec407a;
+  border: 2px solid #FC57F9;
   box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
 }
 
 header {
-  background: #2d0a1f;
+  background: #3d0638;
   color: white;
   padding: 20px;
   text-align: center;
   margin-bottom: 20px;
   padding-bottom: 15px;
-  border-bottom: 2px solid #ec407a;
+  border-bottom: 2px solid #FC57F9;
   box-shadow: 0 2px 10px rgba(0, 255, 65, 0.2);
 }
 
@@ -70,11 +70,11 @@ main {
 }
 
 .status-section {
-  background: #2d0a1f;
+  background: #3d0638;
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 20px;
-  border: 1px solid #ec407a;
+  border: 1px solid #FC57F9;
 }
 
 .status-indicator {
@@ -93,18 +93,18 @@ main {
 }
 
 .character-info {
-  background: #2d0a1f;
+  background: #3d0638;
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 20px;
-  border: 2px solid #ec407a;
+  border: 2px solid #FC57F9;
   box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
 }
 
 .character-info h3 {
   font-size: 16px;
   margin-bottom: 12px;
-  color: #ec407a;
+  color: #FC57F9;
 }
 
 .info-row {
@@ -116,7 +116,7 @@ main {
 
 .info-row .label {
   font-weight: 600;
-  color: #ec407a;
+  color: #FC57F9;
 }
 
 .hidden {
@@ -159,7 +159,7 @@ main {
 }
 
 .btn-primary {
-  background: #ec407a;
+  background: #FC57F9;
   color: #000000;
   font-weight: 700;
   box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
@@ -170,9 +170,9 @@ main {
 }
 
 .btn-secondary {
-  background: #2d0a1f;
-  color: #ec407a;
-  border: 2px solid #ec407a;
+  background: #3d0638;
+  color: #FC57F9;
+  border: 2px solid #FC57F9;
 }
 
 .btn-danger {
@@ -205,15 +205,15 @@ main {
 }
 
 footer {
-  background: #2d0a1f;
+  background: #3d0638;
   padding: 10px;
   text-align: center;
-  border-top: 2px solid #ec407a;
+  border-top: 2px solid #FC57F9;
 }
 
 .version {
   font-size: 12px;
-  color: #ec407a;
+  color: #FC57F9;
 }
 
 /* Login Form Styles */
@@ -224,7 +224,7 @@ footer {
 .login-box h3 {
   font-size: 18px;
   margin-bottom: 10px;
-  color: #ec407a;
+  color: #FC57F9;
 }
 
 .help-text {
@@ -242,25 +242,25 @@ footer {
   display: block;
   font-size: 13px;
   font-weight: 600;
-  color: #ec407a;
+  color: #FC57F9;
   margin-bottom: 5px;
 }
 
 .form-group input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ec407a;
+  border: 1px solid #FC57F9;
   border-radius: 4px;
   font-size: 14px;
   box-sizing: border-box;
   transition: border-color 0.3s;
-  background: #2d0a1f;
+  background: #3d0638;
   color: #e0e0e0;
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: #ec407a;
+  border-color: #FC57F9;
   box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
 }
 
@@ -280,17 +280,17 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 12px;
-  background: #2d0a1f;
+  background: #3d0638;
   border-radius: 6px;
   margin-bottom: 15px;
   font-size: 13px;
-  border: 1px solid #ec407a;
+  border: 1px solid #FC57F9;
 }
 
 .btn-link {
   background: none;
   border: none;
-  color: #ec407a;
+  color: #FC57F9;
   cursor: pointer;
   font-size: 13px;
   text-decoration: underline;
@@ -299,31 +299,31 @@ footer {
 }
 
 .btn-link:hover {
-  color: #c2185b;
+  color: #8E0682;
   text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
 }
 
 /* Character Selector Styles */
 .character-selector {
   padding: 12px;
-  background: #2d0a1f;
+  background: #3d0638;
   border-radius: 6px;
   margin-bottom: 15px;
-  border: 2px solid #ec407a;
+  border: 2px solid #FC57F9;
 }
 
 .character-selector label {
   display: block;
   font-size: 12px;
   font-weight: 600;
-  color: #ec407a;
+  color: #FC57F9;
   margin-bottom: 8px;
 }
 
 .character-dropdown {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ec407a;
+  border: 1px solid #FC57F9;
   border-radius: 4px;
   font-size: 14px;
   background: #1a1a1a;
@@ -338,26 +338,26 @@ footer {
 
 .character-dropdown:focus {
   outline: none;
-  border-color: #ec407a;
+  border-color: #FC57F9;
   box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
 }
 
 .character-dropdown:hover {
-  border-color: #ec407a;
+  border-color: #FC57F9;
 }
 
 /* Instructions Styles */
 .instructions {
-  background: #2d0a1f;
+  background: #3d0638;
   padding: 15px;
   border-radius: 8px;
   margin-top: 20px;
-  border: 1px solid #ec407a;
+  border: 1px solid #FC57F9;
 }
 
 .instructions h3 {
   margin: 0 0 15px 0;
-  color: #ec407a;
+  color: #FC57F9;
   font-size: 16px;
 }
 
@@ -380,7 +380,7 @@ footer {
   background: #1a1a1a;
   padding: 10px;
   border-radius: 6px;
-  border: 1px solid #ec407a;
+  border: 1px solid #FC57F9;
   min-height: 50px;
 }
 
@@ -407,7 +407,7 @@ footer {
 
 .step-arrow {
   font-size: 16px;
-  color: #ec407a;
+  color: #FC57F9;
   font-weight: bold;
   flex-shrink: 0;
   margin: 0 4px;
@@ -420,7 +420,7 @@ footer {
 
 .detailed-steps h4 {
   margin: 0 0 10px 0;
-  color: #ec407a;
+  color: #FC57F9;
   font-size: 14px;
 }
 
@@ -436,8 +436,8 @@ footer {
 
 /* Special Notes */
 .discord-note, .installer-note {
-  background: #2d0a1f;
-  border: 1px solid #ec407a;
+  background: #3d0638;
+  border: 1px solid #FC57F9;
   border-radius: 6px;
   padding: 10px;
   margin-top: 10px;
@@ -446,12 +446,12 @@ footer {
 .discord-note p, .installer-note p {
   margin: 0;
   font-size: 12px;
-  color: #ec407a;
+  color: #FC57F9;
 }
 
 .workflow-note {
-  background: #2d0a1f;
-  border: 1px solid #ec407a;
+  background: #3d0638;
+  border: 1px solid #FC57F9;
   border-radius: 6px;
   padding: 12px;
   margin-top: 10px;
@@ -465,11 +465,11 @@ footer {
 }
 
 .workflow-note strong {
-  color: #ec407a;
+  color: #FC57F9;
 }
 
 .btn-link:hover {
-  color: #c2185b;
+  color: #8E0682;
 }
 
 /* Modal Styles */
@@ -507,15 +507,15 @@ footer {
   display: flex;
   flex-direction: column;
   z-index: 1001;
-  border: 2px solid #ec407a;
+  border: 2px solid #FC57F9;
 }
 
 .modal-header {
   text-align: center;
   margin-bottom: 20px;
   padding-bottom: 15px;
-  border-bottom: 2px solid #ec407a;
-  background: #2d0a1f;
+  border-bottom: 2px solid #FC57F9;
+  background: #3d0638;
 }
 
 .header-content {
@@ -537,14 +537,14 @@ footer {
 .modal-header h3 {
   font-size: 18px;
   margin: 0;
-  color: #ec407a;
+  color: #FC57F9;
   padding: 15px;
 }
 
 .modal-close {
   background: none;
   border: none;
-  color: #ec407a;
+  color: #FC57F9;
   font-size: 24px;
   cursor: pointer;
   padding: 0;
@@ -583,16 +583,16 @@ footer {
 }
 
 .slot-card {
-  border: 2px solid #ec407a;
+  border: 2px solid #FC57F9;
   border-radius: 8px;
   padding: 15px;
   cursor: pointer;
   transition: all 0.2s;
-  background: #2d0a1f;
+  background: #3d0638;
 }
 
 .slot-card:hover {
-  border-color: #ec407a;
+  border-color: #FC57F9;
   box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
   transform: translateY(-2px);
 }
@@ -612,7 +612,7 @@ footer {
 .slot-number {
   font-weight: 700;
   font-size: 16px;
-  color: #ec407a;
+  color: #FC57F9;
 }
 
 .slot-badge {
@@ -624,13 +624,13 @@ footer {
 }
 
 .slot-badge.empty {
-  background: #2d0a1f;
-  border: 1px solid #ec407a;
-  color: #ec407a;
+  background: #3d0638;
+  border: 1px solid #FC57F9;
+  color: #FC57F9;
 }
 
 .slot-badge.occupied {
-  background: #ec407a;
+  background: #FC57F9;
   color: #000000;
 }
 
@@ -659,11 +659,11 @@ footer {
 }
 
 .spell-slot-card {
-  border: 2px solid #ec407a;
+  border: 2px solid #FC57F9;
   border-radius: 8px;
   padding: 12px;
   text-align: center;
-  background: #2d0a1f;
+  background: #3d0638;
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
@@ -671,14 +671,14 @@ footer {
 }
 
 .spell-slot-card:hover {
-  border-color: #ec407a;
+  border-color: #FC57F9;
   box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
   transform: translateY(-2px);
 }
 
 .spell-slot-card.empty {
   border-style: dashed;
-  border-color: #ec407a;
+  border-color: #FC57F9;
   background: #1a1a1a;
   color: #707070;
 }
@@ -692,7 +692,7 @@ footer {
 .spell-slot-level {
   font-weight: 700;
   font-size: 14px;
-  color: #ec407a;
+  color: #FC57F9;
   margin-bottom: 4px;
 }
 
@@ -789,8 +789,8 @@ footer {
   position: absolute;
   top: 100%;
   right: 0;
-  background: #2d0a1f;
-  border: 2px solid #ec407a;
+  background: #3d0638;
+  border: 2px solid #FC57F9;
   border-radius: 6px;
   box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
   z-index: 1000;
@@ -815,7 +815,7 @@ footer {
 
 .settings-item:hover {
   background-color: #1a1a1a;
-  color: #ec407a;
+  color: #FC57F9;
 }
 
 .settings-item.danger {
@@ -828,26 +828,26 @@ footer {
 
 .settings-divider {
   height: 1px;
-  background-color: #ec407a;
+  background-color: #FC57F9;
   margin: 4px 0;
 }
 
 /* Database Character Tabs Styles */
 .database-tab {
-  background: #2d0a1f !important;
-  border: 2px solid #ec407a !important;
+  background: #3d0638 !important;
+  border: 2px solid #FC57F9 !important;
   position: relative;
 }
 
 .database-tab:hover {
-  border-color: #ec407a !important;
+  border-color: #FC57F9 !important;
   box-shadow: 0 0 20px rgba(0, 255, 65, 0.5) !important;
   transform: translateY(-2px);
 }
 
 .database-tab.active {
-  background: #ec407a !important;
-  border-color: #c2185b !important;
+  background: #FC57F9 !important;
+  border-color: #8E0682 !important;
   color: #000000 !important;
 }
 
@@ -857,7 +857,7 @@ footer {
 }
 
 .database-tab .slot-number {
-  background: #ec407a !important;
+  background: #FC57F9 !important;
   color: #000000 !important;
   border-radius: 50% !important;
   width: 24px !important;
@@ -879,9 +879,9 @@ footer {
 .tab-separator {
   padding: 8px 16px !important;
   text-align: center !important;
-  background: #2d0a1f !important;
-  border-top: 1px solid #ec407a !important;
-  border-bottom: 1px solid #ec407a !important;
+  background: #3d0638 !important;
+  border-top: 1px solid #FC57F9 !important;
+  border-bottom: 1px solid #FC57F9 !important;
   margin: 8px 0 !important;
   border-radius: 4px !important;
 }
@@ -891,5 +891,5 @@ footer {
   text-transform: uppercase !important;
   letter-spacing: 0.5px !important;
   font-weight: 600 !important;
-  color: #ec407a !important;
+  color: #FC57F9 !important;
 }

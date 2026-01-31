@@ -3356,7 +3356,7 @@
    */
   function showNotification(message, type = 'info', duration = 5000) {
     const colors = {
-      success: '#ec407a',
+      success: '#FC57F9',
       error: '#f44336',
       info: '#2196F3'
     };
@@ -3611,7 +3611,7 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            background: #ec407a;
+            background: #FC57F9;
             color: white;
             padding: 15px 20px;
             border-radius: 8px;
@@ -3630,7 +3630,7 @@
             <button onclick="this.parentElement.remove()" style="
               margin-top: 10px;
               background: white;
-              color: #ec407a;
+              color: #FC57F9;
               border: none;
               padding: 5px 10px;
               border-radius: 4px;
@@ -5434,7 +5434,7 @@
       title.style.cssText = `
         margin: 0;
         font-size: 24px;
-        color: #ec407a;
+        color: #FC57F9;
       `;
 
       const closeBtn = document.createElement('button');
@@ -5493,7 +5493,7 @@
           const slotCard = document.createElement('div');
           slotCard.style.cssText = `
             background: ${existingChar ? '#3a3a3a' : '#252525'};
-            border: 2px solid ${existingChar ? '#ec407a' : '#404040'};
+            border: 2px solid ${existingChar ? '#FC57F9' : '#404040'};
             border-radius: 8px;
             padding: 16px;
             cursor: pointer;
@@ -5501,13 +5501,13 @@
           `;
 
           slotCard.addEventListener('mouseenter', () => {
-            slotCard.style.borderColor = '#ec407a';
+            slotCard.style.borderColor = '#FC57F9';
             slotCard.style.transform = 'translateY(-2px)';
             slotCard.style.boxShadow = '0 4px 12px rgba(78, 205, 196, 0.3)';
           });
 
           slotCard.addEventListener('mouseleave', () => {
-            slotCard.style.borderColor = existingChar ? '#ec407a' : '#404040';
+            slotCard.style.borderColor = existingChar ? '#FC57F9' : '#404040';
             slotCard.style.transform = 'translateY(0)';
             slotCard.style.boxShadow = 'none';
           });
@@ -5540,7 +5540,7 @@
             padding: 4px 8px;
             border-radius: 4px;
             background: ${existingChar ? 'rgba(78, 205, 196, 0.2)' : 'rgba(255, 255, 255, 0.1)'};
-            color: ${existingChar ? '#ec407a' : '#999'};
+            color: ${existingChar ? '#FC57F9' : '#999'};
           `;
 
           slotHeader.appendChild(slotNumber);
@@ -5597,7 +5597,7 @@
       position: fixed;
       bottom: 20px;
       left: 20px;
-      background: linear-gradient(135deg, #ec407a 0%, #c2185b 100%);
+      background: linear-gradient(135deg, #FC57F9 0%, #8E0682 100%);
       color: white;
       border: none;
       padding: 12px 20px;
