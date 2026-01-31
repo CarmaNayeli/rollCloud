@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "RollCloud: DiceCloud + Roll20 + Discord Integration",
-  "version": "1.2.7",
+  "version": "2.1.0",
   "description": "Sync DiceCloud V2 characters to Roll20 with Discord turn notifications via Pip 2",
   "permissions": [
     "storage",
@@ -25,8 +25,6 @@
         "https://*.dicecloud.com/*"
       ],
       "js": [
-        "src/common/browser-polyfill.js",
-        "src/common/debug.js",
         "src/content/dicecloud.js"
       ],
       "run_at": "document_idle"
@@ -36,10 +34,6 @@
         "https://app.roll20.net/*"
       ],
       "js": [
-        "src/common/browser-polyfill.js",
-        "src/common/debug.js",
-        "src/lib/meteor-ddp-client.js",
-        "src/lib/dicecloud-sync.js",
         "src/content/roll20.js",
         "src/content/character-sheet-overlay.js"
       ],
@@ -65,59 +59,10 @@
     {
       "resources": [
         "src/popup-sheet.html",
-        "src/popup-sheet.js",
-        "src/common/debug.js",
-        "src/common/browser-polyfill.js",
-        "src/common/theme-manager.js",
-        "src/common/html-utils.js",
-        "src/modules/color-utils.js",
-        "src/modules/card-creator.js",
-        "src/modules/action-executor.js",
-        "src/modules/spell-edge-cases.js",
-        "src/modules/class-feature-edge-cases.js",
-        "src/modules/racial-feature-edge-cases.js",
-        "src/modules/combat-maneuver-edge-cases.js",
-        "src/modules/action-announcements.js",
-        "src/modules/action-display.js",
-        "src/modules/action-filters.js",
-        "src/modules/action-options.js",
-        "src/modules/character-trait-popups.js",
-        "src/modules/character-traits.js",
-        "src/modules/companions-manager.js",
-        "src/modules/concentration-tracker.js",
-        "src/modules/data-manager.js",
-        "src/modules/dice-roller.js",
-        "src/modules/effects-manager.js",
-        "src/modules/feature-modals.js",
-        "src/modules/formula-resolver.js",
-        "src/modules/gm-mode.js",
-        "src/modules/health-modals.js",
-        "src/modules/hp-management.js",
-        "src/modules/inventory-manager.js",
-        "src/modules/macro-system.js",
-        "src/modules/resource-manager.js",
-        "src/modules/sheet-builder.js",
-        "src/modules/spell-cards.js",
-        "src/modules/spell-casting.js",
-        "src/modules/spell-display.js",
-        "src/modules/spell-macros.js",
-        "src/modules/spell-modals.js",
-        "src/modules/spell-slots.js",
-        "src/modules/ui-utilities.js",
-        "src/modules/warlock-invocations.js",
-        "src/modules/window-management.js"
+        "src/popup-sheet.js"
       ],
       "matches": [
         "https://app.roll20.net/*"
-      ]
-    },
-    {
-      "resources": [
-        "src/lib/meteor-ddp-client.js",
-        "src/lib/dicecloud-sync.js"
-      ],
-      "matches": [
-        "<all_urls>"
       ]
     }
   ],
