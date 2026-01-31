@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <div className="space-y-8">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg shadow-xl p-8">
+      <div className="bg-gradient-to-r from-green-500 to-green-800 text-white rounded-lg shadow-xl p-8">
         <h1 className="text-4xl font-bold mb-4">RollCloud</h1>
         <p className="text-xl opacity-90">
           Sync your DiceCloud V2 characters to Roll20 with Discord turn notifications
